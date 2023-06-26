@@ -15,7 +15,7 @@ class Num : public Token
 	// to implement ...
 public:
 
-    Num() {} // DIESEN LEEREN STANDARDKONSTRUKTOR NICHT LOESCHEN
+    Num() {} // DIESEN LEEREN STANDARDKONSTRUKTOR NICHT LÖSCHEN
 	Num(int i) { /* cout << "Number added: " << i << endl; */ number = i;}
     
     int eval() 
@@ -58,10 +58,10 @@ public:
     }
     
     /*
-     * Nummeriert den Baum ausgehend vom aktuellen Knoten unter Verwendung eines Zaehlers 
-	 * in Infix-Reihenfolge durch (wichtig fuer die Visualisierung).
+     * Nummeriert den Baum ausgehend vom aktuellen Knoten unter Verwendung eines Zählers
+	 * in Infix-Reihenfolge durch (wichtig für die Visualisierung).
      * 
-     * Parameter: o der Zaehler
+     * Parameter: o der Zähler
      */
     void order(Order o) 
 	{ 

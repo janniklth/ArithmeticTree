@@ -13,7 +13,7 @@ class Vis
 public:
 	
     static const int REGULAR = 1; // Darstellung mit gleichen Abst�nden zwischen Knoten
-    static const int BINARY = 2;  // Darstellung mit fortlaufend halbierten Abst�nden
+    static const int BINARY = 2;  // Darstellung mit fortlaufend halbierten Abständen
 
     /*
      * Erzeugt das Text-/Grafikfenster.
@@ -43,7 +43,7 @@ public:
 	}
     
     /*
-     * Zeichnet einen Baum mit gleichmaessigem Abstand zwischen Knoten.
+     * Zeichnet einen Baum mit gleichmäßigem Abstand zwischen Knoten.
      * 
      * Parameter: t darzustellender Baum
      */
@@ -53,7 +53,7 @@ public:
     }
     
     /*
-     * Zeichnet einen Baum mit gleichmaessigem Abstand zwischen Knoten.
+     * Zeichnet einen Baum mit gleichmäßigem Abstand zwischen Knoten.
      * 
      * Parameter: t darzustellender Baum
      * Parameter: depth aktuelle Tiefenebene im Baum

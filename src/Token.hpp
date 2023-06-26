@@ -38,7 +38,7 @@ public:
 
     /*
      * Nummeriert den Baum ausgehend vom aktuellen Knoten unter Verwendung eines Zaehlers
-	 * in Infix-Reihenfolge durch (wichtig fuer die Visualisierung).
+	 * in Infix-Reihenfolge durch (wichtig für die Visualisierung).
      * 
      * Parameter: o der Zaehler
      */

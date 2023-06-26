@@ -17,7 +17,7 @@ public:
     Tokenizer(string s) 
 	{
         src = s + " "; // Das Leerzeichen dient dazu, beim Lesen von Zahlen nicht 
-					   // ueber die String-Grenze zu laufen
+					   // über die String-Grenze zu laufen
     }
     
     vector<Token*>* tokenize() 
@@ -27,7 +27,7 @@ public:
 
 		/*
 
-		Beispiel f�r das Einf�gen von Knoten:
+		Beispiel für das Einfügen von Knoten:
 
 		i = tokens->insert(i, new Op(c));
 		i = tokens->insert(i, new Num(c));
