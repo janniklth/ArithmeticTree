@@ -23,6 +23,8 @@ Führen Sie das kompilierte Programm mit dem Befehl ./arithmetic_tree (unter Lin
 Verwendung des Programms
 Nach dem Start des Programms wird eine interaktive Benutzeroberfläche angezeigt, die es Ihnen ermöglicht, verschiedene Operationen auf dem arithmetischen Baum auszuführen. Folgen Sie den Anweisungen auf dem Bildschirm, um die gewünschten Operationen auszuwählen.
 
+https://lucid.app/lucidchart/eaa7f8fd-ea61-4e99-b400-512dbe78189e/edit?invitationId=inv_e00830bc-4495-4c9d-9150-2cfbbdbc1bfa
+
 ## Beispielhafte Funktionen, die im Programm implementiert sein könnten, sind:
 
 Erstellen eines leeren arithmetischen Baums.
