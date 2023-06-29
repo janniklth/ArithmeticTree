@@ -1,0 +1,36 @@
+{
+    "tasks": [
+       {
+          "type": "cppbuild",
+          "label": "C/C++: g++.exe Aktive Datei kompilieren",
+          "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+          "args": [
+             "-fdiagnostics-color=always",
+             "-g",
+             "${fileDirname}\\*.cpp",
+             "-o",
+             "${fileDirname}\\${fileBasenameNoExtension}.exe"
+          ],
+          "options": {
+             "cwd": "${fileDirname}"
+          },
+          "problemMatcher": [
+             "$gcc"
+          ],
+          "group": {
+             "kind": "build",
+             "isDefault": true
+          },
+          "detail": "Vom Debugger generierte Aufgabe."
+       },
+       {
+          "type": "cppbuild",
+          "label": "Remove exe",
+          "command": "del",
+          "args": [
+             "${fileDirname}\\${fileBasenameNoExtension}.exe"
+          ]
+       }
+    ],
+    "version": "2.0.0"
+ }
