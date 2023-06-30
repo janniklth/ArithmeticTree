@@ -15,6 +15,7 @@ class Tokenizer
     string src;
 
 public:
+    // overloaded constructor
     Tokenizer(string s) 
 	{
         src = s + " "; // Das Leerzeichen dient dazu, beim Lesen von Zahlen nicht 
