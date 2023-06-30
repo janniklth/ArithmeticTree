@@ -6,6 +6,9 @@ Das Ziel dieses Projekts ist es, ein Programm zu entwickeln, das arithmetische B
 
 Das Programm wird in C++ implementiert und verwendet die grundlegenden Konzepte der objektorientierten Programmierung. Es wird verschiedene Klassen geben, um den Baum selbst zu repräsentieren und Operationen auf dem Baum auszuführen.
 
+## Klassenübersicht
+![UML class (1)](https://github.com/janniklth/ArithmeticTree/assets/82065311/4b4b523d-e060-44d8-99f7-22bc43f68395)
+
 ## Projektstruktur
 Die Projektstruktur ist wie folgt aufgebaut:
 
