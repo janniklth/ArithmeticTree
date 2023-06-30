@@ -21,15 +21,21 @@ public:
         src = s + " "; // Das Leerzeichen dient dazu, beim Lesen von Zahlen nicht 
 					   // über die String-Grenze zu laufen
     }
-    
+
+    // splits a string into tokens
+    // return type is a vector of pointers to tokens
     vector<Token*>* tokenize() 
 	{
+        // vector that saves the single tokens as strings
+        vector<string> stringVector;       //Testing purposes
+
+        // given code from the exercise
         vector<Token*>* tokens = new vector<Token*>();
 	    vector<Token*>::iterator i = tokens->begin();
 
+        // length of the string for the loop
         int stringLength = src.length();
 
-        vector<string> stringVector;       //Testing purposes
 
         // iterate over the string
         for (int i = 0; i < stringLength; i++){
@@ -37,12 +43,16 @@ public:
             // check if the current char is a bracket
             if (src[i] == '(' || src[i] == ')' ){
                 stringVector.push_back(src.substr(i, 1));       //Testing purposes
+
+                // push a new Bracket object to the vector
                 tokens->push_back(new Bracket(src[i]));
             }
 
             // check if the current char is an operator
             else if (src[i] == '+' || src[i] == '-' || src[i] == '*' || src[i] == '/') {
                 stringVector.push_back(src.substr(i, 1));       //Testing purposes
+
+                // push a new Op object to the vector
                 tokens->push_back(new Op(src[i]));
             }
 
@@ -66,13 +76,15 @@ public:
                     builtNumber += temp * pow(10, numVector.size() - k - 1);
                 }
 
-                // generate a new Num object and add it to the vector
-                stringVector.push_back(to_string(builtNumber));       //Testing purposes
-                tokens->push_back(new Num(builtNumber));
-
                 // set counter i to the right value to continue the loop
                 j = j-i;
                 i += j-1;
+
+                stringVector.push_back(to_string(builtNumber));       //Testing purposes
+
+                // push a new Num object to the vector
+                tokens->push_back(new Num(builtNumber));
+
             }
         }
 
