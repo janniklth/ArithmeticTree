@@ -4,6 +4,7 @@
 #include "Num.hpp"
 #include "Bracket.hpp"
 #include "Op.hpp"
+#include "string.h"
 
 
 using namespace std;
@@ -25,20 +26,61 @@ public:
         vector<Token*>* tokens = new vector<Token*>();
 	    vector<Token*>::iterator i = tokens->begin();
 
-		/*
+        int stringLength = src.length();
 
-		Beispiel für das Einfügen von Knoten:
+        vector<string> stringVector;       //Testing purposes
 
-		i = tokens->insert(i, new Op(c));
-		i = tokens->insert(i, new Num(c));
-		usw. 
-		
-		*/
-		
-		// to implement ...
+        // iterate over the string
+        for (int i = 0; i < stringLength; i++){
 
-        cout << "Die Methode Tokenizer.tokenize ist noch nicht implementiert!" << endl; // remove this line
-        // tokens->add(new Num()); // remove this line
+            // check if the current char is a bracket
+            if (src[i] == '(' || src[i] == ')' ){
+                stringVector.push_back(src.substr(i, 1));       //Testing purposes
+                tokens->push_back(new Bracket(src[i]));
+            }
+
+            // check if the current char is an operator
+            else if (src[i] == '+' || src[i] == '-' || src[i] == '*' || src[i] == '/') {
+                stringVector.push_back(src.substr(i, 1));       //Testing purposes
+                tokens->push_back(new Op(src[i]));
+            }
+
+            // check if the current char is a number
+            else if (src[i] <= '9' && src[i] >= '0'){
+
+                int j = i;
+                vector<char> numVector;
+
+                // put all single digits of the number into a vector
+                while (src[j] <= '9' && src[j] >= '0'){
+                    numVector.push_back(src[j]);
+                    j++;
+                }
+
+                int builtNumber = 0;
+
+                // bult the number from the vector of single digits
+                for (int k = 0; k < numVector.size(); k++){
+                    int temp = numVector[k] - '0';
+                    builtNumber += temp * pow(10, numVector.size() - k - 1);
+                }
+
+                // generate a new Num object and add it to the vector
+                stringVector.push_back(to_string(builtNumber));       //Testing purposes
+                tokens->push_back(new Num(builtNumber));
+
+                // set counter i to the right value to continue the loop
+                j = j-i;
+                i += j-1;
+            }
+        }
+
+        // print out vector tokens for testing purposes
+        cout << "Testausgabe: " << endl;
+        cout << "Einzelne Tokens: " << endl;
+        for (int i = 0; i < stringVector.size(); i++){
+            cout << stringVector[i] << "  //  ";
+        }
 
         return tokens;
     }
