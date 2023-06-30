@@ -5,6 +5,7 @@
 #include "Bracket.hpp"
 #include "Op.hpp"
 #include "string.h"
+#include "math.h"
 
 
 using namespace std;
