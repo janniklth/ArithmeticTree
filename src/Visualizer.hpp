@@ -1,8 +1,15 @@
+#ifndef ARITHMETIC_TREE_VISUALIZER_HPP
+#define ARITHMETIC_TREE_VISUALIZER_HPP
+
+
 #include "Token.hpp"
 
+
 /*
- * Visualisierung eines arithmetischen Bin�rbaums
+ * Visualisierung eines arithmetischen Binärbaums
  */
+
+
 class Visualizer
 {
     Token *tree;
@@ -103,3 +110,5 @@ public:
     }
 
 };
+
+#endif // ARITHMETIC_TREE_VISUALIZER_HPP
