@@ -97,16 +97,24 @@ private:
         }
     }
 
-	Token* parsePrefix(vector<Token*>::iterator i) 
+    /// parses prefix expression (tokenized string) to an expression tree
+    /// @param i: ...
+    /// @return ...
+	Token* parsePrefix(vector<Token*>::iterator& i)
 	{
-
-        // to implement ...
-
-        cout << "Die Methode Evaluator.parsePrefix ist noch nicht implementiert!" << endl;
-
-        return new Number(); // remove this line
+        if ( !(checkOperator((*i)->getType()) ) )
+        {
+            return *i;
+        }
+        else
+        {
+            Operator* OpNode = new Operator((*i)->getType(), parsePrefix(++i), parsePrefix(++i));
+            return OpNode;
+        }
     }
 
+    /// parses postfix expression to an expression tree
+    // return type is the root node of the tree (top of the stack)
     Token* parsePostfix(vector<Token*>::iterator i)
 	{
 		stack<Token*> *s = new stack<Token*>();
@@ -115,7 +123,7 @@ private:
         do
         {
             // wenn der token eine Zahl ist - auf stack
-            if ( !(checkOperator( (*i)->getType()) ) )
+            if ((*i)->getType() == 'n')
             {
                 s->push(*i);
             }
