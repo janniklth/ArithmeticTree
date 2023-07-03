@@ -17,7 +17,7 @@ public:
      * 
      * Parameter: t Typ der Klammer: '(' oder ')'
      */
-    Bracket(char t) { type = t; /* cout << "Bracket added: " << t << endl; */}
+    Bracket(char t) { m_type = t; /* cout << "Bracket added: " << t << endl; */}
 
     /*
      * Dummy-Methode, tut nichts.

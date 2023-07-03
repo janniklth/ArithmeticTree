@@ -23,7 +23,7 @@ public:
      */
     Operator(char t, Token *l, Token *r)
 	{
-        type = t;
+        m_type = t;
         left = l;
         right = r;
     }
@@ -35,7 +35,7 @@ public:
      */
     Operator(char t)
 	{
-        type = t;
+        m_type = t;
         left = NULL;
         right = NULL;
 		// cout << "Operator added: " << t << endl;

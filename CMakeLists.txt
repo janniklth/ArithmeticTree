@@ -13,4 +13,5 @@ add_executable(ArithmeticTree
         src/Number.hpp
         src/Evaluator.hpp
         src/Bracket.hpp
-        src/ABaumVCpp.cpp)
+        src/ABaumVCpp.cpp
+        src/Token.cpp)

@@ -24,7 +24,7 @@ public:
     }
 
     // splits a string into tokens
-    // return type is a vector of pointers to tokens
+    // return m_type is a vector of pointers to tokens
     vector<Token *> *tokenize()
     {
         // vector that saves the single tokens as strings
