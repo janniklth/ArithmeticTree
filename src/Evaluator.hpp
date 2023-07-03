@@ -69,7 +69,15 @@ public:
 
     }
 
-private: 
+private:
+    bool checkOperator(char i){
+        if (i == '+' || i == '-' || i == '*' || i == '/' || i == '^'){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 	/*
      * Ruft die entsprechende Parse-Methode (Prefix, Infix oder Postfix) auf.
@@ -103,20 +111,29 @@ private:
 	{
 		stack<Token*> *s = new stack<Token*>();
 
-        /*
-         *  Postfix - Operator steht am Ende.
-         *  Element ist eine Zahl - auf Stack
-         *  Wenn das Element keine Zahl ist - beide Operanden vom Stapel nehmen und Operator erzeugen
-         *
-         *
-         */
+        // loop that iterates through the vector of tokens
+        do{
+            // wenn der token eine Zahl ist - auf stack
+            if ( !(checkOperator( (*i)->getType()) ) ){
+                s->push(*i);
+            }
 
+            // wenn der token ein Operator ist - beide Operanden vom Stapel nehmen und Operator erzeugen
+            else {
+                Token* tmpOperand_right = s->top(); s->pop();
+                Token* tmpOperand_left = s->top(); s->pop();
 
-        // to implement ...
+                // create new operator-node with the 3 tokens (left operand, operator, right operand)
+                Operator* OpNode = new Operator((*i)->getType(), tmpOperand_left, tmpOperand_right);
 
-        cout << "Die Methode Evaluator.parsePostfix ist noch nicht implementiert!" << endl;
+                // push new operator-node to stack
+                s->push(OpNode);
+            }
+           i++; // iterate to next token
+        } while (*i != nullptr); // loop until end of vector is reached
+
 		
-		return new Number(); // remove this line
+		return s->top();
     }
 
     // Parses infix expression to an expression tree
@@ -157,3 +174,4 @@ private:
     }
 
 };
+

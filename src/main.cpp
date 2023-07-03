@@ -6,12 +6,16 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string exp = "((10 + 20) * 30)";
+    string infix = "((10 + 20) * 30)";
+    string postfix = "10 20 + 30 *";
+    string prefix = "* + 10 20 30";
 
-    Tokenizer *t = new Tokenizer(exp);
+    //Tokenizer *t = new Tokenizer(exp);
     Evaluator e;
 
-    e.evaluate(exp, '|');
+    //e.evaluate(prefix, '<');
+    //e.evaluate(infix, '|');
+    e.evaluate(postfix, '>');
 
     //t->tokenize();
 

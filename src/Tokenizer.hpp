@@ -46,7 +46,7 @@ public:
             {
                 tokens->push_back(new Bracket(src[i]));
 
-                cout << "Bracket: " << src[i] << endl;
+                //cout << "Bracket: " << src[i] << endl;
             }
 
             // check if the current char is an operator (+, -, *, /) and push a new Operator object to the vector
@@ -54,7 +54,7 @@ public:
             {
                 tokens->push_back(new Operator(src[i]));
 
-                cout << "Operator: " << src[i] << endl;
+                //cout << "Operator: " << src[i] << endl;
             }
 
             // check if the current char is a number (0-9) and push a new Number object to the vector
@@ -63,17 +63,10 @@ public:
                 int number = atoi(src.substr(i, stringLength).c_str());
                 tokens->push_back(new Number(number));
 
-                cout << "Number: " << number << endl;
+                //cout << "Number: " << number << endl;
 
                 i += log10(number);
             }
-        }
-
-        // print out vector tokens for testing purposes
-        cout << "Testausgabe: " << endl;
-        cout << "Einzelne Tokens: " << endl;
-        for (int i = 0; i < stringVector.size(); i++) {
-            cout << stringVector[i] << endl;
         }
 
         return tokens;
