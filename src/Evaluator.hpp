@@ -112,14 +112,18 @@ private:
 		stack<Token*> *s = new stack<Token*>();
 
         // loop that iterates through the vector of tokens
-        do{
+        do
+        {
             // wenn der token eine Zahl ist - auf stack
-            if ( !(checkOperator( (*i)->getType()) ) ){
+            if ( !(checkOperator( (*i)->getType()) ) )
+            {
                 s->push(*i);
             }
 
             // wenn der token ein Operator ist - beide Operanden vom Stapel nehmen und Operator erzeugen
-            else {
+            else
+            {
+                // take 2 operands from stack (right operand first)
                 Token* tmpOperand_right = s->top(); s->pop();
                 Token* tmpOperand_left = s->top(); s->pop();
 
@@ -129,10 +133,12 @@ private:
                 // push new operator-node to stack
                 s->push(OpNode);
             }
+
            i++; // iterate to next token
         } while (*i != nullptr); // loop until end of vector is reached
 
-		
+
+		// return root of the tree (top of the stack)
 		return s->top();
     }
 
@@ -143,12 +149,15 @@ private:
         stack<Token*> *s = new stack<Token*>();
 
         // loop that iterates through the vector of tokens
-        do {
+        do
+        {
             // if token is not a closing bracket, push it to the stack
-            if ( (*i)->getType() != ')' ){
+            if ( (*i)->getType() != ')' )
+            {
                 s->push(*i);
             }
-            else {
+            else
+            {
 
                 Token* tmpOperand_right = s->top(); s->pop();
                 Token* tmpOperator = s->top(); s->pop();
@@ -164,8 +173,7 @@ private:
                 s->push(OpNode);
             }
 
-            // iterate to next token
-            i++;
+            i++; // iterate to next token
         } while (*i != nullptr); // loop until end of vector is reached
 
 
