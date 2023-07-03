@@ -7,7 +7,7 @@
 #include "Token.hpp"
 #include "Tokenizer.hpp"
 #include "Vis.hpp"
-#include "Num.hpp"
+#include "Number.hpp"
 
 using namespace std;
 
@@ -37,15 +37,15 @@ public:
 
         // Testbaum, falls Tokenizer und/oder Parser noch nicht fertig:
         /*
-        e = new Op('+',
-                   new Op('*',
-                          new Num(2),
-                          new Num(3)),
-                   new Op('-',
-                          new Op('/',
-                                 new Num(6),
-                                 new Num(2)),
-                          new Num(1)));
+        e = new Operator('+',
+                   new Operator('*',
+                          new Number(2),
+                          new Number(3)),
+                   new Operator('-',
+                          new Operator('/',
+                                 new Number(6),
+                                 new Number(2)),
+                          new Number(1)));
        */
        // Prefix:  + * 2 3 - / 6 2 1 = 8
        // Infix:   ((2 * 3) + ((6 / 2) - 1)) = 8
@@ -96,7 +96,7 @@ private:
 
         cout << "Die Methode Evaluator.parsePrefix ist noch nicht implementiert!" << endl;
 
-        return new Num(); // remove this line
+        return new Number(); // remove this line
     }
 
     Token* parsePostfix(vector<Token*>::iterator i)
@@ -107,7 +107,7 @@ private:
 
         cout << "Die Methode Evaluator.parsePostfix ist noch nicht implementiert!" << endl;
 		
-		return new Num(); // remove this line
+		return new Number(); // remove this line
     }
 
     Token* parseInfix(vector<Token*>::iterator) 
@@ -118,7 +118,7 @@ private:
 
         cout << "Die Methode Evaluator.parseInfix ist noch nicht implementiert!" << endl;
 		
-		return new Num(); // remove this line
+		return new Number(); // remove this line
     }
 
 };

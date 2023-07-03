@@ -9,8 +9,8 @@ add_executable(ArithmeticTree
         src/Tokenizer.hpp
         src/Token.hpp
         src/Order.hpp
-        src/Op.hpp
-        src/Num.hpp
+        src/Operator.hpp
+        src/Number.hpp
         src/Evaluator.hpp
         src/Bracket.hpp
         src/ABaumVCpp.cpp)
