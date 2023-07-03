@@ -103,6 +103,9 @@ private:
 	{
 		stack<Token*> *s = new stack<Token*>();
 
+
+
+
         // to implement ...
 
         cout << "Die Methode Evaluator.parsePostfix ist noch nicht implementiert!" << endl;
@@ -113,6 +116,19 @@ private:
     Token* parseInfix(vector<Token*>::iterator) 
 	{
         stack<Token*> *s = new stack<Token*>();
+
+        // ((2+4) * (4+6))
+
+        /*
+         *
+         *  Element ist keine Klammer -> auf Stack
+         *  Element ist eine Klammer -> Stapel abarbeiten (bis zur passenden schließenden Klammer)
+         *  Obersten drei Elemente (Operator mit zwei Operanden) vom Stapel nehmen und zwischenspeichern
+         *  Noch ein Element vom Stapel nehmen -> muss eine öffnende Klammer sein
+         *  Operator Knoten erzeugen und wieder auf den Stapel legen
+         *  Nach durchlaufen der Schleife -> nur noch ein Knoten auf dem Stapel -> Wurzel
+         *
+         */
 
         // to implement ...
 
