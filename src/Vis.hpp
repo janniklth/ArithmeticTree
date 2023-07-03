@@ -12,7 +12,7 @@ class Vis
 
 public:
 	
-    static const int REGULAR = 1; // Darstellung mit gleichen Abst�nden zwischen Knoten
+    static const int REGULAR = 1; // Darstellung mit gleichen Abständen zwischen Knoten
     static const int BINARY = 2;  // Darstellung mit fortlaufend halbierten Abständen
 
     /*
