@@ -51,24 +51,21 @@ void Evaluator::evaluate(string exp, char mode)
 // private method to check if token is an operator
 bool Evaluator::checkOperator(char i)
 {
-    if (i == '+' || i == '-' || i == '*' || i == '/' || i == '^'){
-        return true;
-    }
-    else {
-        return false;
-    }
+    return (i == '+' || i == '-' || i == '*' || i == '/' || i == '^');
 }
 
 
 // private method to call the corresponding parse method
 Token *Evaluator::parse(vector<Token *> *tok, char mode)
 {
-    vector<Token*>::iterator i = tok->begin();
-    switch (mode)
-    {
-        case '<': return parsePrefix(i);
-        case '>': return parsePostfix(i);
-        default : return parseInfix(i);
+    vector<Token *>::iterator i = tok->begin();
+    switch (mode) {
+        case '<':
+            return parsePrefix(i);
+        case '>':
+            return parsePostfix(i);
+        default :
+            return parseInfix(i);
     }
 }
 
@@ -76,14 +73,16 @@ Token *Evaluator::parse(vector<Token *> *tok, char mode)
 // private method to parse prefix expression
 Token *Evaluator::parsePrefix(vector<Token *>::iterator &i)
 {
+    // return leaf node without further recursion if token is a number
     if ( !(checkOperator((*i)->getType()) ) )
     {
         return *i;
     }
+    // else create new operator node and call parsePrefix recursively for the left and right child of the operator
     else
     {
-        Operator* OpNode = new Operator((*i)->getType(), parsePrefix(++i), parsePrefix(++i));
-        return OpNode;
+        Operator* operator_node = new Operator((*i)->getType(), parsePrefix(++i), parsePrefix(++i));
+        return operator_node;
     }
 }
 
@@ -96,29 +95,25 @@ Token *Evaluator::parsePostfix(vector<Token *>::iterator i)
     // loop that iterates through the vector of tokens
     do
     {
-        // wenn der token eine Zahl ist - auf stack
+        // if the token is a number, push it to the stack
         if ((*i)->getType() == 'n')
         {
             s->push(*i);
         }
 
-            // wenn der token ein Operator ist - beide Operanden vom Stapel nehmen und Operator erzeugen
+        // if the token is an operator, create a new operator-node with the two operands from the stack
         else
         {
-            // take 2 operands from stack (right operand first)
-            Token* tmpOperand_right = s->top(); s->pop();
-            Token* tmpOperand_left = s->top(); s->pop();
-
-            // create new operator-node with the 3 tokens (left operand, operator, right operand)
-            Operator* OpNode = new Operator((*i)->getType(), tmpOperand_left, tmpOperand_right);
+            // take the two operands from the stack and delete them
+            Token* tmp_operand_left = s->top(); s->pop();
+            Token* tmp_operand_right = s->top(); s->pop();
 
             // push new operator-node to stack
-            s->push(OpNode);
+            s->push(new Operator((*i)->getType(), tmp_operand_left, tmp_operand_right));
         }
 
         i++; // iterate to next token
     } while (*i != nullptr); // loop until end of vector is reached
-
 
     // return root of the tree (top of the stack)
     return s->top();
@@ -140,24 +135,18 @@ Token *Evaluator::parseInfix(vector<Token *>::iterator i)
         }
         else
         {
-
-            Token* tmpOperand_right = s->top(); s->pop();
-            Token* tmpOperator = s->top(); s->pop();
-            Token* tmpOperand_left = s->top(); s->pop();
+            Token* tmp_operand_right = s->top(); s->pop();
+            Token* tmp_operator = s->top(); s->pop();
+            Token* tmp_operand_left = s->top(); s->pop();
 
             // delete opening bracket that is left on the stack
             s->pop();
 
-            // create new operator-node with the 3 tokens (left operand, operator, right operand)
-            Operator* OpNode = new Operator(tmpOperator->getType(), tmpOperand_left, tmpOperand_right);
-
             // push new operator-node to stack
-            s->push(OpNode);
+            s->push(new Operator(tmp_operator->getType(), tmp_operand_left, tmp_operand_right));
         }
-
         i++; // iterate to next token
     } while (*i != nullptr); // loop until end of vector is reached
-
 
     // return root of the tree (top of the stack)
     return s->top();
