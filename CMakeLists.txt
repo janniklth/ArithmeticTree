@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(ArithmeticTree
         src/main.cpp
-        src/Vis.hpp
+        src/Visualizer.hpp
         src/Tokenizer.hpp
         src/Token.hpp
         src/Order.hpp

@@ -6,7 +6,7 @@
 
 #include "Token.hpp"
 #include "Tokenizer.hpp"
-#include "Vis.hpp"
+#include "Visualizer.hpp"
 #include "Number.hpp"
 
 using namespace std;
@@ -26,7 +26,7 @@ public:
      * Parameter: exp der arithmetische Ausdruck
      * Parameter: mode: '<': Prefix, '|': Infix, '>': Postfix
      */
-    void evaluate(string exp, char mode) 
+    void evaluate(string exp, char mode)
 	{
 
         // String in Tokens zerlegen
@@ -61,9 +61,9 @@ public:
         cout << "Tiefe:   " << e->depth() << endl;
 
         // Grafische Darstellung des arithmetischen Binärbaums
-		Vis *v = new Vis(e, Vis::REGULAR); // Layout 1: gleiche Abstände zwischen Knoten
-        //Vis v = new Vis(e, Vis::BINARY); // Layout 2: binäre Unterteilung
-        
+		Visualizer *v = new Visualizer(e, Visualizer::REGULAR); // Layout 1: gleiche Abstände zwischen Knoten
+        //Visualizer v = new Visualizer(e, Visualizer::BINARY); // Layout 2: binäre Unterteilung
+
 		// Text-/Grafikfenster sichtbar machen
 		// ...
 
