@@ -1,9 +1,9 @@
 #include <string>
 #include <vector>
 
-#include "Num.hpp"
+#include "Number.hpp"
 #include "Bracket.hpp"
-#include "Op.hpp"
+#include "Operator.hpp"
 #include "string.h"
 #include "math.h"
 
@@ -49,19 +49,19 @@ public:
                 cout << "Bracket: " << src[i] << endl;
             }
 
-            // check if the current char is an operator (+, -, *, /) and push a new Op object to the vector
+            // check if the current char is an operator (+, -, *, /) and push a new Operator object to the vector
             else if (src[i] == '+' || src[i] == '-' || src[i] == '*' || src[i] == '/')
             {
-                tokens->push_back(new Op(src[i]));
+                tokens->push_back(new Operator(src[i]));
 
                 cout << "Operator: " << src[i] << endl;
             }
 
-            // check if the current char is a number (0-9) and push a new Num object to the vector
+            // check if the current char is a number (0-9) and push a new Number object to the vector
             else if (isdigit(src[i]))
             {
                 int number = atoi(src.substr(i, stringLength).c_str());
-                tokens->push_back(new Num(number));
+                tokens->push_back(new Number(number));
 
                 cout << "Number: " << number << endl;
 
