@@ -103,7 +103,13 @@ private:
 	{
 		stack<Token*> *s = new stack<Token*>();
 
-
+        /*
+         *  Postfix - Operator steht am Ende.
+         *  Element ist eine Zahl - auf Stack
+         *  Wenn das Element keine Zahl ist - beide Operanden vom Stapel nehmen und Operator erzeugen
+         *
+         *
+         */
 
 
         // to implement ...
@@ -113,28 +119,41 @@ private:
 		return new Number(); // remove this line
     }
 
-    Token* parseInfix(vector<Token*>::iterator) 
+    // Parses infix expression to an expression tree
+    // return type is the root node of the tree (top of the stack)
+    Token* parseInfix(vector<Token*>::iterator i)
 	{
         stack<Token*> *s = new stack<Token*>();
 
-        // ((2+4) * (4+6))
+        // loop that iterates through the vector of tokens
+        do {
+            // if token is not a closing bracket, push it to the stack
+            if ( (*i)->getType() != ')' ){
+                s->push(*i);
+            }
+            else {
 
-        /*
-         *
-         *  Element ist keine Klammer -> auf Stack
-         *  Element ist eine Klammer -> Stapel abarbeiten (bis zur passenden schließenden Klammer)
-         *  Obersten drei Elemente (Operator mit zwei Operanden) vom Stapel nehmen und zwischenspeichern
-         *  Noch ein Element vom Stapel nehmen -> muss eine öffnende Klammer sein
-         *  Operator Knoten erzeugen und wieder auf den Stapel legen
-         *  Nach durchlaufen der Schleife -> nur noch ein Knoten auf dem Stapel -> Wurzel
-         *
-         */
+                Token* tmpOperand_right = s->top(); s->pop();
+                Token* tmpOperator = s->top(); s->pop();
+                Token* tmpOperand_left = s->top(); s->pop();
 
-        // to implement ...
+                // delete opening bracket that is left on the stack
+                s->pop();
 
-        cout << "Die Methode Evaluator.parseInfix ist noch nicht implementiert!" << endl;
-		
-		return new Number(); // remove this line
+                // create new operator-node with the 3 tokens (left operand, operator, right operand)
+                Operator* OpNode = new Operator(tmpOperator->getType(), tmpOperand_left, tmpOperand_right);
+
+                // push new operator-node to stack
+                s->push(OpNode);
+            }
+
+            // iterate to next token
+            i++;
+        } while (*i != nullptr); // loop until end of vector is reached
+
+
+        // return root of the tree (top of the stack)
+        return s->top();
     }
 
 };
