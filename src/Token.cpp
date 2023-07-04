@@ -22,19 +22,19 @@ void Token::setOrd(int o)
     m_ord = o;
 }
 
-// method to numerate the tree starting from the current node using a counter in infix order (important for visualization)
+// method to numerate the m_tree starting from the current node using a counter in infix order (important for visualization)
 void Token::order(Order *o)
 {
 
 }
 
-// method to get the number of nodes in the tree
+// method to get the number of nodes in the m_tree
 int Token::nodes()
 {
     return 1;
 }
 
-// method to get the depth of the tree
+// method to get the depth of the m_tree
 int Token::depth()
 {
     return 1;

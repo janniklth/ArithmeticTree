@@ -14,12 +14,12 @@
 
 using namespace std;
 
-/// evaluation of an arithmetic expression by first tokenizing it and then parsing it into a binary tree which
+/// evaluation of an arithmetic expression by first tokenizing it and then parsing it into a binary m_tree which
 /// then can be evaluated and visualized with the help of the Visualizer class
 class Evaluator 
 {
 public:
-    /// evaluates an arithmetic expression by first tokenizing it and then parsing it into a binary tree which
+    /// evaluates an arithmetic expression by first tokenizing it and then parsing it into a binary m_tree which
     /// is then evaluated and visualized
     /// @param exp: the arithmetic expression
     /// @param mode: '<': prefix, '|': infix, '>': postfix
@@ -34,22 +34,22 @@ private:
     /// calls the corresponding parse method (prefix, infix or postfix)
     /// @param tok: the tokenized arithmetic expression
     /// @param mode: '<': prefix, '|': infix, '>': postfix
-    /// @return Token*: the arithmetic binary tree
+    /// @return Token*: the arithmetic binary m_tree
 	Token* parse(vector<Token*> *tok, char mode);
 
-    /// parses prefix expression (tokenized string) to an expression tree
+    /// parses prefix expression (tokenized string) to an expression m_tree
     /// @param i: iterator that iterates through the vector of tokens
-    /// @return Token*: the root node of the tree
+    /// @return Token*: the root node of the m_tree
 	Token* parsePrefix(vector<Token*>::iterator& i);
 
-    /// parses postfix expression (tokenized string) to an expression tree
+    /// parses postfix expression (tokenized string) to an expression m_tree
     /// @param i: iterator that iterates through the vector of tokens
-    /// @return Token*: the root node of the tree
+    /// @return Token*: the root node of the m_tree
     Token* parsePostfix(vector<Token*>::iterator i);
 
-    /// parses infix expression (tokenized string) to an expression tree
+    /// parses infix expression (tokenized string) to an expression m_tree
     /// @param i: iterator that iterates through the vector of tokens
-    /// @return Token*: the root node of the tree
+    /// @return Token*: the root node of the m_tree
     Token* parseInfix(vector<Token*>::iterator i);
 };
 

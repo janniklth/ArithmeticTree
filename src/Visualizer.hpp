@@ -12,11 +12,6 @@
 
 class Visualizer
 {
-    Token *tree;
-    int spacing;
-    int width;
-    int height;
-
 public:
 	
     static const int REGULAR = 1; // Darstellung mit gleichen Abständen zwischen Knoten
@@ -30,8 +25,8 @@ public:
      */
     Visualizer(Token *t, int s)
 	{
-        tree = t;
-        spacing = s;
+        m_tree = t;
+        m_spacing = s;
     
 		// ...
     }
@@ -100,15 +95,19 @@ public:
     void paint() 
 	{
 
-		if (spacing == REGULAR) 
+		if (m_spacing == REGULAR)
 		{
             Order* o = new Order(); // Zaehler
-            tree->order(o); // Baum in Infix-Reihenfolge nummerieren
-            drawTreeReg(tree);
+            m_tree->order(o); // Baum in Infix-Reihenfolge nummerieren
+            drawTreeReg(m_tree);
         } else 
-			drawTreeBin(tree);
+			drawTreeBin(m_tree);
     }
-
+private:
+    Token *m_tree;
+    int m_spacing;
+    int m_width;
+    int m_height;
 };
 
 #endif // ARITHMETIC_TREE_VISUALIZER_HPP

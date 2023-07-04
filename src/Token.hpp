@@ -37,15 +37,15 @@ public:
         return NULL;
     }
 
-    /// number of nodes in the tree
-    /// @return int: the number of nodes in the tree
+    /// number of nodes in the m_tree
+    /// @return int: the number of nodes in the m_tree
     int nodes();
 
-    /// depth of the tree
-    /// @return int: the depth of the tree
+    /// depth of the m_tree
+    /// @return int: the depth of the m_tree
     int depth();
 
-    /// numerates the tree starting from the current node using a counter in infix order (important for visualization)
+    /// numerates the m_tree starting from the current node using a counter in infix order (important for visualization)
     /// @param o: the counter
     void order(Order *o);
 

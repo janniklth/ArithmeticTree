@@ -116,7 +116,7 @@ Token *Evaluator::parsePostfix(vector<Token *>::iterator i)
         i++; // iterate to next token
     } while (*i != nullptr); // loop until end of vector is reached
 
-    // return root of the tree (top of the stack)
+    // return root of the m_tree (top of the stack)
     return s->top();
 }
 
@@ -149,6 +149,6 @@ Token *Evaluator::parseInfix(vector<Token *>::iterator i)
         i++; // iterate to next token
     } while (*i != nullptr); // loop until end of vector is reached
 
-    // return root of the tree (top of the stack)
+    // return root of the m_tree (top of the stack)
     return s->top();
 }
