@@ -57,6 +57,11 @@ public:
     int returnValue = 0;
     int eval() 
 	{
+        // if tree is empty
+        if (getValue() == "") {
+            return 0;
+        }
+
 
         if (!getLeft() && !getRight()) {
             // Leaf node (Operand)
@@ -66,8 +71,8 @@ public:
             return value;
         }
 
-        int leftValue = eval();
-        int rightValue = eval();
+        int leftValue = left->eval();
+        int rightValue = right->eval();
 
         if (getValue() == "+") {
             return leftValue + rightValue;
@@ -78,7 +83,7 @@ public:
         } else if (getValue() == "/") {
             return leftValue / rightValue;
         }
-        return 0; // Default case (should not reach here)
+        return 1; // Default case (should not reach here)
     }
 
     string prefixReturn = "";

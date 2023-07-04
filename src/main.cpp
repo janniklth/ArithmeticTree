@@ -6,8 +6,8 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 
-    string infix = "((10 + 20) * 30)";
-    string infix2 = "((10 + 20) * ((30 + 2) - 5))";
+    string infix = "((1 + 1) * 5)";
+    string infix2 = "((10 + 20) * ((30 + 2) - 5))"; // =
     string postfix = "10 20 + 30 *";
     string prefix = "+ 10 20";
     // Knoten: 5
