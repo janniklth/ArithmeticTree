@@ -55,7 +55,6 @@ bool Evaluator::checkOperator(char i)
     return (i == '+' || i == '-' || i == '*' || i == '/' || i == '^');
 }
 
-
 // private method to call the corresponding parse method
 Token *Evaluator::parse(vector<Token *> *tok, char mode)
 {

@@ -57,8 +57,7 @@ public:
     string prefix() 
 	{
 
-        // to implement ...
-        
+        // Test
         cout << "Die Methode Operator.prefix ist noch nicht implementiert!" << endl;
 
         return ""; // remove this line
