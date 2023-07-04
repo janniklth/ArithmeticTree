@@ -21,9 +21,10 @@ public:
      * Parameter: l der linke Unterbaum
      * Parameter: r der rechte Unterbaum
      */
-    Operator(char t, Token *l, Token *r)
+    Operator(string s, Token *l, Token *r)
 	{
-        m_type = t;
+        m_value = s;
+        m_tokenType = TokenType::OPERATOR;
         left = l;
         right = r;
     }
@@ -33,53 +34,69 @@ public:
      * 
      * Parameter: t der Typ des Tokens: '+', '-', '*' oder '/'
      */
-    Operator(char t)
+    Operator(char s)
 	{
-        m_type = t;
+        m_tokenType = TokenType::OPERATOR;
+        m_value = s;
         left = NULL;
         right = NULL;
 		// cout << "Operator added: " << t << endl;
     }
 
-    Token* getLeft() { return left; }
-    Token* getRight() { return right; }
+    Token *getLeft() override
+    {
+        return left;
+    }
 
+    Token *getRight() override
+    {
+        return right;
+    }
+
+    int returnValue = 0;
     int eval() 
 	{
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.eval ist noch nicht implementiert!" << endl;
-
-        return 1; // remove this line
+        return 0; // Default case (should not reach here)
     }
-    
-    string prefix() 
+
+    string prefixReturn = "";
+
+    string prefix()
 	{
+        prefixReturn += getValue();
+        prefixReturn += left->prefix();
+        prefixReturn += right->prefix();
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.prefix ist noch nicht implementiert!" << endl;
-
-        return ""; // remove this line
+        return prefixReturn; // remove this line
     }
     string infix() 
 	{
+        string infixReturn = "";
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.infix ist noch nicht implementiert!" << endl;
+        if (left || right) {
+            std::cout << "(";
+        }
 
-        return ""; // remove this line
+        infixReturn += left->infix();
+        infixReturn += getValue();
+        infixReturn += right->infix();
+
+        if (left || right) {
+            infixReturn += ")";
+        }
+
+        return infixReturn; // remove this line
     }
     string postfix() 
 	{
+        string postfixReturn = "";
 
-        // to implement ...
-                
-        cout << "Die Methode Operator.postfix ist noch nicht implementiert!" << endl;
+        postfixReturn += left->postfix();
+        postfixReturn += right->postfix();
+        postfixReturn += getValue();
 
-        return ""; // remove this line
+        return postfixReturn; // remove this line
     }
 
     int nodes() 

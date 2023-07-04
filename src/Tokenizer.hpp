@@ -44,6 +44,8 @@ public:
             // check if the current char is a bracket and push a new Bracket object to the vector
             if (src[i] == '(' || src[i] == ')')
             {
+                cout << "Bracket: " << src[i] << endl;
+                cout << "Bracket string: " << src[i] << endl;
                 tokens->push_back(new Bracket(src[i]));
 
                 //cout << "Bracket: " << src[i] << endl;
@@ -57,13 +59,13 @@ public:
                 //cout << "Operator: " << src[i] << endl;
             }
 
-            // check if the current char is a number (0-9) and push a new Number object to the vector
+            // check if the current char is a m_number (0-9) and push a new Number object to the vector
             else if (isdigit(src[i]))
             {
                 int number = atoi(src.substr(i, stringLength).c_str());
                 tokens->push_back(new Number(number));
 
-                //cout << "Number: " << number << endl;
+                //cout << "Number: " << m_number << endl;
 
                 i += log10(number);
             }

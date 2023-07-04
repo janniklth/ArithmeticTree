@@ -10,14 +10,24 @@
 class Number : public Token
 {
     
-	int number;
+	int m_number;
 
 	// to implement ...
 public:
 
     Number() {} // DIESEN LEEREN STANDARDKONSTRUKTOR NICHT LÖSCHEN
-	Number(int i) { /* cout << "Number added: " << i << endl; */ number = i;}
-    
+
+	Number(int i) {
+        /* cout << "Number added: " << i << endl; */
+        m_number = i;
+        m_value = to_string(i);
+        m_tokenType = TokenType::NUMBER;
+    }
+
+    int getMNumber() const {
+        return m_number;
+    }
+
     int eval() 
 	{
 
@@ -30,31 +40,16 @@ public:
     
     string prefix() 
 	{
-
-        // to implement ...
-        
-        cout << "Die Methode Number.prefix ist noch nicht implementiert!" << endl;
-
-        return ""; // remove this line
+         return " " + m_value + " ";  // remove this line
     }
-    string infix() 
-	{
-
-        // to implement ...
-        
-        cout << "Die Methode Number.infix ist noch nicht implementiert!" << endl;
-
-        return ""; // remove this line
+    string infix()
+    {
+        return " " + m_value + " ";  // remove this line
     }
 
 	string postfix() 
 	{
-
-        // to implement ...
-                
-        cout << "Die Methode Number.postfix ist noch nicht implementiert!" << endl;
-
-        return ""; // remove this line
+        return " " + m_value + " ";  // remove this line
     }
     
     /*
