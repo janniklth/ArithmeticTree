@@ -4,14 +4,24 @@
 
 #include <string>
 #include "Order.hpp"
+#include "string"
 
 using namespace std;
+
+
+enum class TokenType
+{
+    NUMBER,
+    OPERATOR,
+    BRACKET
+};
+
 
 class Token 
 {
 public:
-    /// Auswertung
-    /// @return int: the result of the evaluation ????
+    /// Calculate the value of the expression
+    /// @return int
     virtual int eval() = 0;
 
     /// Prefix-Representation
@@ -26,19 +36,8 @@ public:
     /// @return string: the postfix representation
     virtual string postfix() = 0;
 
-    /// left subtree
-    /// @return Token*: the left subtree
-    Token* left() {
-        return NULL;
-    }
-    /// right subtree
-    /// @return Token*: the right subtree
-    Token* right() {
-        return NULL;
-    }
-
-    /// number of nodes in the tree
-    /// @return int: the number of nodes in the tree
+    /// m_number of nodes in the tree
+    /// @return int: the m_number of nodes in the tree
     int nodes();
 
     /// depth of the tree
@@ -52,23 +51,49 @@ public:
 
     // - - - - - - Getter and Setter - - - - - - -
 
-    /// Getter for the type of the token
-    /// @return char: the type of the token
-    char getType();
-
     /// Getter for the order of the node in the infix representation (important for visualization)
     /// @return int: the index of the node
     int getOrd();
+
+    /// Getter for the value of the token
+    /// @return char: the value of the token
+    string getValue();
+
+    /// Getter for the type of the token
+    /// @return TokenType: the type of the token
+    TokenType getTokenType();
+
+    /// Getter for the left subtree
+    /// @return Token*: the left subtree
+    virtual Token* getLeft()
+    {
+        return NULL;
+    }
+
+    /// Getter for the right subtree
+    /// @return Token*: the right subtree
+    virtual Token* getRight()
+    {
+        return NULL;
+    }
 
     /// Setter for the index of the node in the infix representation (important for visualization)
     /// @param o: the index of the node
     void setOrd(int o);
 
+    /// Setter for the value of the token
+    /// @param v: the value of the token
+    void setValue(string s);
+
+    /// Setter for the type of the token
+    /// @param t: the type of the token
+    void setTokenType(TokenType t);
+
 
 protected:
-    char m_type;				// Typ des Tokens / Knotens
-    int m_ord;					// Reihenfolge fuer die Visualisierung
-
+    int m_ord;                  // Reihenfolge fuer die Visualisierung
+    string m_value;
+    TokenType m_tokenType;
 };
 
 #endif //ARITHMETIC_TREE_TOKEN_HPP
