@@ -10,7 +10,7 @@
 class Number : public Token
 {
     
-	int number;
+	int m_number;
 
 	// to implement ...
 public:
@@ -19,11 +19,15 @@ public:
 
 	Number(int i) {
         /* cout << "Number added: " << i << endl; */
-        number = i;
+        m_number = i;
         m_value = to_string(i);
         m_tokenType = TokenType::NUMBER;
     }
-    
+
+    int getMNumber() const {
+        return m_number;
+    }
+
     int eval() 
 	{
 
@@ -36,31 +40,16 @@ public:
     
     string prefix() 
 	{
-     string prefixReturnNumber = "";
-
-     // Jannik implements a function that return value of number
-     prefixReturnNumber = " number ";
-
-        return prefixReturnNumber; // remove this line
+         return " " + m_value + " ";  // remove this line
     }
     string infix()
     {
-        string infixReturnNumber = "";
-
-        // Jannik implements a function that return value of number
-        infixReturnNumber = " number ";
-
-    return infixReturnNumber;
+        return " " + m_value + " ";  // remove this line
     }
 
 	string postfix() 
 	{
-        string postfixReturnNumber = "";
-
-        // Jannik implements a function that return value of number
-        postfixReturnNumber = " number ";
-
-        return postfixReturnNumber;
+        return " " + m_value + " ";  // remove this line
     }
     
     /*

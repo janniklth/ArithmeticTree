@@ -23,7 +23,7 @@ void Token::order(Order *o)
 
 }
 
-// method to get the number of nodes in the tree
+// method to get the m_number of nodes in the tree
 int Token::nodes()
 {
     return 1;

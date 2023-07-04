@@ -36,8 +36,8 @@ public:
     /// @return string: the postfix representation
     virtual string postfix() = 0;
 
-    /// number of nodes in the tree
-    /// @return int: the number of nodes in the tree
+    /// m_number of nodes in the tree
+    /// @return int: the m_number of nodes in the tree
     int nodes();
 
     /// depth of the tree

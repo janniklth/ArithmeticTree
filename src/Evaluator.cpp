@@ -76,7 +76,7 @@ Token *Evaluator::parse(vector<Token *> *tok, char mode)
 // private method to parse prefix expression
 Token *Evaluator::parsePrefix(vector<Token *>::iterator &i)
 {
-    // return leaf node without further recursion if token is a number
+    // return leaf node without further recursion if token is a m_number
     if ((*i)->getTokenType() == TokenType::NUMBER)
     {
         return *i;
@@ -98,7 +98,7 @@ Token *Evaluator::parsePostfix(vector<Token *>::iterator i)
     // loop that iterates through the vector of tokens
     do
     {
-        // if the token is a number, push it to the stack
+        // if the token is a m_number, push it to the stack
         if ((*i)->getTokenType() == TokenType::NUMBER)
         {
             s->push(*i);

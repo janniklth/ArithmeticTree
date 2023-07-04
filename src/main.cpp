@@ -16,11 +16,9 @@ int main(int argc, char* argv[])
     //Tokenizer *t = new Tokenizer(exp);
     Evaluator e;
 
-    e.evaluate(prefix, '<');
-    //e.evaluate(infix, '|');
+    //e.evaluate(prefix, '<');
+    e.evaluate(infix, '|');
     //e.evaluate(postfix, '>');
-
-    //t->tokenize();
 
     return 0;
 }

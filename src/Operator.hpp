@@ -56,22 +56,6 @@ public:
     int returnValue = 0;
     int eval() 
 	{
-        if (!getType()) {
-            return 0;
-        }
-
-        //int leftValue = evaluateExpression(root->left);
-        //int rightValue = evaluateExpression(root->right);
-
-        if (getType() == '+') {
-            return left->getType() + right->getType();
-        } else if (getType() == '-') {
-            return left->getType() - right->getType();
-        } else if (getType() == '*') {
-            return left->getType() * right->getType();
-        } else if (getType() == '/') {
-            return left->getType() / right->getType();
-        }
 
         return 0; // Default case (should not reach here)
     }
@@ -80,7 +64,7 @@ public:
 
     string prefix()
 	{
-        prefixReturn += getType();
+        prefixReturn += getValue();
         prefixReturn += left->prefix();
         prefixReturn += right->prefix();
 
@@ -95,7 +79,7 @@ public:
         }
 
         infixReturn += left->infix();
-        infixReturn += getType();
+        infixReturn += getValue();
         infixReturn += right->infix();
 
         if (left || right) {
@@ -110,7 +94,7 @@ public:
 
         postfixReturn += left->postfix();
         postfixReturn += right->postfix();
-        postfixReturn += getType();
+        postfixReturn += getValue();
 
         return postfixReturn; // remove this line
     }
