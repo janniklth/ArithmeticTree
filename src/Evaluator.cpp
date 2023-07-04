@@ -11,6 +11,7 @@ void Evaluator::evaluate(string exp, char mode)
     Tokenizer *t = new Tokenizer(exp);
 
     // Aus den Tokens den arithmetischen Binärbaum aufbauen
+    // return = Wurzeltoken des Baumes (Operator)
     Token *e = parse(t->tokenize(), mode);
 
     // Testbaum, falls Tokenizer und/oder Parser noch nicht fertig:
