@@ -60,31 +60,32 @@ public:
         return 0; // Default case (should not reach here)
     }
 
-    string prefixReturn = "";
-
     string prefix()
 	{
+        string prefixReturn = "";
+
         prefixReturn += getValue();
         prefixReturn += left->prefix();
         prefixReturn += right->prefix();
 
         return prefixReturn; // remove this line
     }
-    string infix() 
+
+    string infix()
 	{
         string infixReturn = "";
 
-        if (left || right) {
-            std::cout << "(";
-        }
+        // put an opening bracket to the start of the string
+        if (left != NULL && right != NULL)
+            infixReturn += "(";
 
         infixReturn += left->infix();
         infixReturn += getValue();
         infixReturn += right->infix();
 
-        if (left || right) {
+        // put an closing bracket to the end of the string
+        if (left != NULL && right != NULL)
             infixReturn += ")";
-        }
 
         return infixReturn; // remove this line
     }
