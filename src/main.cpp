@@ -7,6 +7,7 @@ int main(int argc, char* argv[])
 {
 
     string infix = "((10 + 20) * 30)";
+    string infix2 = "((10 + 20) * ((30 + 2) - 5))";
     string postfix = "10 20 + 30 *";
     string prefix = "+ 10 20";
     // Knoten: 5
@@ -17,7 +18,7 @@ int main(int argc, char* argv[])
     Evaluator e;
 
     //e.evaluate(prefix, '<');
-    e.evaluate(infix, '|');
+    e.evaluate(infix2, '|');
     //e.evaluate(postfix, '>');
 
     return 0;
