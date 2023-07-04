@@ -36,31 +36,31 @@ public:
     
     string prefix() 
 	{
+     string prefixReturnNumber = "";
 
-        // to implement ...
-        
-        cout << "Die Methode Number.prefix ist noch nicht implementiert!" << endl;
+     // Jannik implements a function that return value of number
+     prefixReturnNumber = " number ";
 
-        return ""; // remove this line
+        return prefixReturnNumber; // remove this line
     }
-    string infix() 
-	{
+    string infix()
+    {
+        string infixReturnNumber = "";
 
-        // to implement ...
-        
-        cout << "Die Methode Number.infix ist noch nicht implementiert!" << endl;
+        // Jannik implements a function that return value of number
+        infixReturnNumber = " number ";
 
-        return ""; // remove this line
+    return infixReturnNumber;
     }
 
 	string postfix() 
 	{
+        string postfixReturnNumber = "";
 
-        // to implement ...
-                
-        cout << "Die Methode Number.postfix ist noch nicht implementiert!" << endl;
+        // Jannik implements a function that return value of number
+        postfixReturnNumber = " number ";
 
-        return ""; // remove this line
+        return postfixReturnNumber;
     }
     
     /*

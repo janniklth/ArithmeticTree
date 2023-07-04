@@ -20,8 +20,8 @@ enum class TokenType
 class Token 
 {
 public:
-    /// Auswertung
-    /// @return int: the result of the evaluation ????
+    /// Calculate the value of the expression
+    /// @return int
     virtual int eval() = 0;
 
     /// Prefix-Representation

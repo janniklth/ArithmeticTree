@@ -53,42 +53,66 @@ public:
         return right;
     }
 
+    int returnValue = 0;
     int eval() 
 	{
+        if (!getType()) {
+            return 0;
+        }
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.eval ist noch nicht implementiert!" << endl;
+        //int leftValue = evaluateExpression(root->left);
+        //int rightValue = evaluateExpression(root->right);
 
-        return 1; // remove this line
+        if (getType() == '+') {
+            return left->getType() + right->getType();
+        } else if (getType() == '-') {
+            return left->getType() - right->getType();
+        } else if (getType() == '*') {
+            return left->getType() * right->getType();
+        } else if (getType() == '/') {
+            return left->getType() / right->getType();
+        }
+
+        return 0; // Default case (should not reach here)
     }
-    
-    string prefix() 
+
+    string prefixReturn = "";
+
+    string prefix()
 	{
+        prefixReturn += getType();
+        prefixReturn += left->prefix();
+        prefixReturn += right->prefix();
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.prefix ist noch nicht implementiert!" << endl;
-
-        return ""; // remove this line
+        return prefixReturn; // remove this line
     }
     string infix() 
 	{
+        string infixReturn = "";
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.infix ist noch nicht implementiert!" << endl;
+        if (left || right) {
+            std::cout << "(";
+        }
 
-        return ""; // remove this line
+        infixReturn += left->infix();
+        infixReturn += getType();
+        infixReturn += right->infix();
+
+        if (left || right) {
+            infixReturn += ")";
+        }
+
+        return infixReturn; // remove this line
     }
     string postfix() 
 	{
+        string postfixReturn = "";
 
-        // to implement ...
-                
-        cout << "Die Methode Operator.postfix ist noch nicht implementiert!" << endl;
+        postfixReturn += left->postfix();
+        postfixReturn += right->postfix();
+        postfixReturn += getType();
 
-        return ""; // remove this line
+        return postfixReturn; // remove this line
     }
 
     int nodes() 
