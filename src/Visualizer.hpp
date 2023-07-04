@@ -113,20 +113,67 @@ public:
 
     /// simple test method to print a tree
     /// @param root: the root node of tree to print
-    void printTree(Token *root, int indent = 0)
+//    void printTree(Token *root, int indent = 0)
+//    {
+//        if (root == NULL)
+//            return;
+//
+//        // tabs for better readability
+//        for (int i = 0; i < indent; i++)
+//            std::cout << "--";
+//
+//        std::cout << root->getType() << std::endl;
+//
+//        printTree(root->getLeft(), indent + 2);
+//        printTree(root->getRight(), indent + 2);
+//    }
+
+//    void printTree(Token* root, std::string prefix = "")
+//    {
+//        if (root == nullptr)
+//            return;
+//
+//        // Ausgabe des Tokens mit dem aktuellen Präfix
+//        std::cout << prefix;
+//        std::cout << "└──" << root->getType() << std::endl;
+//
+//        // Erzeugen des neuen Präfixes für die rekursive Ausgabe
+//        std::string childPrefix = prefix;
+//        if (prefix.empty())
+//            childPrefix += "   ";
+//        else
+//            childPrefix += "│  ";
+//
+//        // Rekursive Ausgabe der linken und rechten Teilbäume
+//        printTree(root->getLeft(), childPrefix + "├──");
+//        printTree(root->getRight(), childPrefix + "└──");
+//    }
+
+    void printTree(Token* root, std::string prefix = "", bool isLast = true)
     {
-        if (root == NULL)
+        if (root == nullptr)
             return;
 
-        // tabs for better readability
-        for (int i = 0; i < indent; i++)
-            std::cout << "  ";
+        std::cout << prefix;
 
-        std::cout << root->getType() << std::endl;
+        if (isLast)
+        {
+            std::cout << "└──";
+            prefix += "    ";
+        }
+        else
+        {
+            std::cout << "├──";
+            prefix += "│   ";
+        }
 
-        printTree(root->getLeft(), indent + 2);
-        printTree(root->getRight(), indent + 2);
+        std::cout << " " << root->getType() << std::endl;
+
+        printTree(root->getRight(), prefix, false);
+        printTree(root->getLeft(), prefix, true);
+
     }
+
 };
 
 #endif // ARITHMETIC_TREE_VISUALIZER_HPP
