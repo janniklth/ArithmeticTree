@@ -4,8 +4,18 @@
 
 #include <string>
 #include "Order.hpp"
+#include "string"
 
 using namespace std;
+
+
+enum class TokenType
+{
+    NUMBER,
+    OPERATOR,
+    BRACKET
+};
+
 
 class Token 
 {
@@ -41,13 +51,17 @@ public:
 
     // - - - - - - Getter and Setter - - - - - - -
 
-    /// Getter for the type of the token
-    /// @return char: the type of the token
-    char getType();
-
     /// Getter for the order of the node in the infix representation (important for visualization)
     /// @return int: the index of the node
     int getOrd();
+
+    /// Getter for the value of the token
+    /// @return char: the value of the token
+    string getValue();
+
+    /// Getter for the type of the token
+    /// @return TokenType: the type of the token
+    TokenType getTokenType();
 
     /// Getter for the left subtree
     /// @return Token*: the left subtree
@@ -67,11 +81,19 @@ public:
     /// @param o: the index of the node
     void setOrd(int o);
 
+    /// Setter for the value of the token
+    /// @param v: the value of the token
+    void setValue(string s);
+
+    /// Setter for the type of the token
+    /// @param t: the type of the token
+    void setTokenType(TokenType t);
+
 
 protected:
-    char m_type;				// Typ des Tokens / Knotens
-    int m_ord;					// Reihenfolge fuer die Visualisierung
-
+    int m_ord;                  // Reihenfolge fuer die Visualisierung
+    string m_value;
+    TokenType m_tokenType;
 };
 
 #endif //ARITHMETIC_TREE_TOKEN_HPP

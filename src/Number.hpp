@@ -16,7 +16,13 @@ class Number : public Token
 public:
 
     Number() {} // DIESEN LEEREN STANDARDKONSTRUKTOR NICHT LÖSCHEN
-	Number(int i) { /* cout << "Number added: " << i << endl; */ number = i;}
+
+	Number(int i) {
+        /* cout << "Number added: " << i << endl; */
+        number = i;
+        m_value = to_string(i);
+        m_tokenType = TokenType::NUMBER;
+    }
     
     int eval() 
 	{

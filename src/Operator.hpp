@@ -21,9 +21,10 @@ public:
      * Parameter: l der linke Unterbaum
      * Parameter: r der rechte Unterbaum
      */
-    Operator(char t, Token *l, Token *r)
+    Operator(string s, Token *l, Token *r)
 	{
-        m_type = t;
+        m_value = s;
+        m_tokenType = TokenType::OPERATOR;
         left = l;
         right = r;
     }
@@ -33,9 +34,10 @@ public:
      * 
      * Parameter: t der Typ des Tokens: '+', '-', '*' oder '/'
      */
-    Operator(char t)
+    Operator(char s)
 	{
-        m_type = t;
+        m_tokenType = TokenType::OPERATOR;
+        m_value = s;
         left = NULL;
         right = NULL;
 		// cout << "Operator added: " << t << endl;

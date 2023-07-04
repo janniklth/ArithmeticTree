@@ -167,7 +167,7 @@ public:
             prefix += "│   ";
         }
 
-        std::cout << " " << root->getType() << std::endl;
+        std::cout << " " << root->getValue() << std::endl;
 
         printTree(root->getRight(), prefix, false);
         printTree(root->getLeft(), prefix, true);

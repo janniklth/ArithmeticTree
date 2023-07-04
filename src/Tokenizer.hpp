@@ -44,6 +44,8 @@ public:
             // check if the current char is a bracket and push a new Bracket object to the vector
             if (src[i] == '(' || src[i] == ')')
             {
+                cout << "Bracket: " << src[i] << endl;
+                cout << "Bracket string: " << src[i] << endl;
                 tokens->push_back(new Bracket(src[i]));
 
                 //cout << "Bracket: " << src[i] << endl;

@@ -17,14 +17,22 @@ public:
      * 
      * Parameter: t Typ der Klammer: '(' oder ')'
      */
-    Bracket(char t) { m_type = t; /* cout << "Bracket added: " << t << endl; */}
+    Bracket(char s)
+    {
+        m_tokenType = TokenType::BRACKET;
+        m_value = s;
+        cout << "Bracket added: " << s << endl;
+    }
 
     /*
      * Dummy-Methode, tut nichts.
      * 
      * Return: 0
      */
-    int eval() { return 0; }
+    int eval()
+    {
+        return 0;
+    }
 
     /*
      * Dummy-Methode, tut nichts.
