@@ -44,14 +44,27 @@ public:
     Token* getLeft() { return left; }
     Token* getRight() { return right; }
 
+    int returnValue = 0;
     int eval() 
 	{
+        if (!getType()) {
+            return 0;
+        }
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.eval ist noch nicht implementiert!" << endl;
+        //int leftValue = evaluateExpression(root->left);
+        //int rightValue = evaluateExpression(root->right);
 
-        return 1; // remove this line
+        if (getType() == '+') {
+            return left->getType() + right->getType();
+        } else if (getType() == '-') {
+            return left->getType() - right->getType();
+        } else if (getType() == '*') {
+            return left->getType() * right->getType();
+        } else if (getType() == '/') {
+            return left->getType() / right->getType();
+        }
+
+        return 0; // Default case (should not reach here)
     }
 
     string prefixReturn = "";
