@@ -41,8 +41,15 @@ public:
 		// cout << "Operator added: " << t << endl;
     }
 
-    Token* getLeft() { return left; }
-    Token* getRight() { return right; }
+    Token *getLeft() override
+    {
+        return left;
+    }
+
+    Token *getRight() override
+    {
+        return right;
+    }
 
     int eval() 
 	{

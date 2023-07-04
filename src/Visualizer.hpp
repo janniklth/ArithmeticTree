@@ -4,6 +4,8 @@
 
 #include "Token.hpp"
 
+#include "iostream"
+
 
 /*
  * Visualisierung eines arithmetischen Binärbaums
@@ -109,6 +111,22 @@ public:
 			drawTreeBin(tree);
     }
 
+    /// simple test method to print a tree
+    /// @param root: the root node of tree to print
+    void printTree(Token *root, int indent = 0)
+    {
+        if (root == NULL)
+            return;
+
+        // tabs for better readability
+        for (int i = 0; i < indent; i++)
+            std::cout << "  ";
+
+        std::cout << root->getType() << std::endl;
+
+        printTree(root->getLeft(), indent + 2);
+        printTree(root->getRight(), indent + 2);
+    }
 };
 
 #endif // ARITHMETIC_TREE_VISUALIZER_HPP

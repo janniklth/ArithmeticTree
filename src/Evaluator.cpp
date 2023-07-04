@@ -43,6 +43,9 @@ void Evaluator::evaluate(string exp, char mode)
     Visualizer *v = new Visualizer(e, Visualizer::REGULAR); // Layout 1: gleiche Abstände zwischen Knoten
     //Visualizer v = new Visualizer(e, Visualizer::BINARY); // Layout 2: binäre Unterteilung
 
+    cout << "Grafische Darstellung des Baumes:" << endl;
+    v->printTree(e);
+
     // Text-/Grafikfenster sichtbar machen
     // ...
 
@@ -79,7 +82,7 @@ Token *Evaluator::parsePrefix(vector<Token *>::iterator &i)
     {
         return *i;
     }
-    // else create new operator node and call parsePrefix recursively for the left and right child of the operator
+    // else create new operator node and call parsePrefix recursively for the getLeft and right child of the operator
     else
     {
         Operator* operator_node = new Operator((*i)->getType(), parsePrefix(++i), parsePrefix(++i));
@@ -140,7 +143,7 @@ Token *Evaluator::parseInfix(vector<Token *>::iterator i)
             Token* tmp_operator = s->top(); s->pop();
             Token* tmp_operand_left = s->top(); s->pop();
 
-            // delete opening bracket that is left on the stack
+            // delete opening bracket that is getLeft on the stack
             s->pop();
 
             // push new operator-node to stack

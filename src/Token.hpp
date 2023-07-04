@@ -26,17 +26,6 @@ public:
     /// @return string: the postfix representation
     virtual string postfix() = 0;
 
-    /// left subtree
-    /// @return Token*: the left subtree
-    Token* left() {
-        return NULL;
-    }
-    /// right subtree
-    /// @return Token*: the right subtree
-    Token* right() {
-        return NULL;
-    }
-
     /// number of nodes in the tree
     /// @return int: the number of nodes in the tree
     int nodes();
@@ -59,6 +48,20 @@ public:
     /// Getter for the order of the node in the infix representation (important for visualization)
     /// @return int: the index of the node
     int getOrd();
+
+    /// Getter for the left subtree
+    /// @return Token*: the left subtree
+    virtual Token* getLeft()
+    {
+        return NULL;
+    }
+
+    /// Getter for the right subtree
+    /// @return Token*: the right subtree
+    virtual Token* getRight()
+    {
+        return NULL;
+    }
 
     /// Setter for the index of the node in the infix representation (important for visualization)
     /// @param o: the index of the node
