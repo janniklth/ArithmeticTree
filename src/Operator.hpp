@@ -64,7 +64,7 @@ public:
 	{
         string prefixReturn = "";
 
-        prefixReturn += getValue();
+        prefixReturn += getValue() + " ";
         prefixReturn += left->prefix();
         prefixReturn += right->prefix();
 
@@ -80,7 +80,7 @@ public:
             infixReturn += "(";
 
         infixReturn += left->infix();
-        infixReturn += getValue();
+        infixReturn += " " + getValue() + " ";
         infixReturn += right->infix();
 
         // put an closing bracket to the end of the string
@@ -95,7 +95,7 @@ public:
 
         postfixReturn += left->postfix();
         postfixReturn += right->postfix();
-        postfixReturn += getValue();
+        postfixReturn += getValue() + " ";
 
         return postfixReturn; // remove this line
     }
