@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Token.hpp"
+#include <sstream>
 
 /*
  * Baumknoten und Token zur Darstellung eines Operators.
@@ -57,6 +58,26 @@ public:
     int eval() 
 	{
 
+        if (!getLeft() && !getRight()) {
+            // Leaf node (Operand)
+            std::istringstream iss(getValue());
+            int value;
+            iss >> value;
+            return value;
+        }
+
+        int leftValue = eval();
+        int rightValue = eval();
+
+        if (getValue() == "+") {
+            return leftValue + rightValue;
+        } else if (getValue() == "-") {
+            return leftValue - rightValue;
+        } else if (getValue() == "*") {
+            return leftValue * rightValue;
+        } else if (getValue() == "/") {
+            return leftValue / rightValue;
+        }
         return 0; // Default case (should not reach here)
     }
 
