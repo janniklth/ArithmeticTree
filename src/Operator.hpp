@@ -53,32 +53,44 @@ public:
 
         return 1; // remove this line
     }
-    
-    string prefix() 
+
+    string prefixReturn = "";
+
+    string prefix()
 	{
+        prefixReturn += getType();
+        prefixReturn += left->prefix();
+        prefixReturn += right->prefix();
 
-        // Test
-        cout << "Die Methode Operator.prefix ist noch nicht implementiert!" << endl;
-
-        return ""; // remove this line
+        return prefixReturn; // remove this line
     }
     string infix() 
 	{
+        string infixReturn = "";
 
-        // to implement ...
-        
-        cout << "Die Methode Operator.infix ist noch nicht implementiert!" << endl;
+        if (left || right) {
+            std::cout << "(";
+        }
 
-        return ""; // remove this line
+        infixReturn += left->infix();
+        infixReturn += getType();
+        infixReturn += right->infix();
+
+        if (left || right) {
+            infixReturn += ")";
+        }
+
+        return infixReturn; // remove this line
     }
     string postfix() 
 	{
+        string postfixReturn = "";
 
-        // to implement ...
-                
-        cout << "Die Methode Operator.postfix ist noch nicht implementiert!" << endl;
+        postfixReturn += left->postfix();
+        postfixReturn += right->postfix();
+        postfixReturn += getType();
 
-        return ""; // remove this line
+        return postfixReturn; // remove this line
     }
 
     int nodes() 
