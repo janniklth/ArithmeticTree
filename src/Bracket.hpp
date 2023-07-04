@@ -21,7 +21,6 @@ public:
     {
         m_tokenType = TokenType::BRACKET;
         m_value = s;
-        cout << "Bracket added: " << s << endl;
     }
 
     /*
