@@ -42,16 +42,16 @@ public:
     
     string prefix() 
 	{
-         return " " + m_value + " ";  // remove this line
+         return m_value + " ";  // remove this line
     }
     string infix()
     {
-        return " " + m_value + " ";  // remove this line
+        return m_value;  // remove this line
     }
 
 	string postfix() 
 	{
-        return " " + m_value + " ";  // remove this line
+        return m_value + " ";  // remove this line
     }
     
     /*

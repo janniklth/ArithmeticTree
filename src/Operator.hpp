@@ -92,31 +92,34 @@ public:
         return 1; // Default case (should not reach here)
     }
 
-    string prefix_return = "";
 
     string prefix()
 	{
-        prefix_return += getValue();
-        prefix_return += left->prefix();
-        prefix_return += right->prefix();
+        string prefixReturn = "";
+
+        prefixReturn += getValue() + " ";
+        prefixReturn += left->prefix();
+        prefixReturn += right->prefix();
 
         return prefix_return; // remove this line
     }
-    string infix() 
+
+    string infix()
 	{
         string infix_return = "";
 
-        if (left || right) {
-            std::cout << "(";
-        }
+        // put an opening bracket to the start of the string
+        if (left != NULL && right != NULL)
+            infixReturn += "(";
 
-        infix_return += left->infix();
-        infix_return += getValue();
-        infix_return += right->infix();
 
-        if (left || right) {
-            infix_return += ")";
-        }
+        infixReturn += left->infix();
+        infixReturn += " " + getValue() + " ";
+        infixReturn += right->infix();
+
+        // put an closing bracket to the end of the string
+        if (left != NULL && right != NULL)
+            infixReturn += ")";
 
         return infix_return; // remove this line
     }
@@ -124,9 +127,10 @@ public:
 	{
         string postfix_return = "";
 
-        postfix_return += left->postfix();
-        postfix_return += right->postfix();
-        postfix_return += getValue();
+
+        postfixReturn += left->postfix();
+        postfixReturn += right->postfix();
+        postfixReturn += getValue() + " ";
 
         return postfix_return; // remove this line
     }
