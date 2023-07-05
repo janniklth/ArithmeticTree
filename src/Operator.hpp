@@ -95,11 +95,11 @@ public:
 
     string prefix()
 	{
-        string prefixReturn = "";
+        string prefix_return = "";
 
-        prefixReturn += getValue() + " ";
-        prefixReturn += left->prefix();
-        prefixReturn += right->prefix();
+        prefix_return += getValue() + " ";
+        prefix_return += left->prefix();
+        prefix_return += right->prefix();
 
         return prefix_return; // remove this line
     }
@@ -110,16 +110,16 @@ public:
 
         // put an opening bracket to the start of the string
         if (left != NULL && right != NULL)
-            infixReturn += "(";
+            infix_return += "(";
 
 
-        infixReturn += left->infix();
-        infixReturn += " " + getValue() + " ";
-        infixReturn += right->infix();
+        infix_return += left->infix();
+        infix_return += " " + getValue() + " ";
+        infix_return += right->infix();
 
         // put an closing bracket to the end of the string
         if (left != NULL && right != NULL)
-            infixReturn += ")";
+            infix_return += ")";
 
         return infix_return; // remove this line
     }
@@ -128,9 +128,9 @@ public:
         string postfix_return = "";
 
 
-        postfixReturn += left->postfix();
-        postfixReturn += right->postfix();
-        postfixReturn += getValue() + " ";
+        postfix_return += left->postfix();
+        postfix_return += right->postfix();
+        postfix_return += getValue() + " ";
 
         return postfix_return; // remove this line
     }
