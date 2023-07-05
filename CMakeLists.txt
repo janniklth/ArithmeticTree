@@ -8,6 +8,7 @@ add_executable(ArithmeticTree
         src/Visualizer.hpp
         src/Visualizer.cpp
         src/Tokenizer.hpp
+        src/Tokenizer.cpp
         src/Token.hpp
         src/Token.cpp
         src/Operator.hpp
