@@ -38,13 +38,13 @@ public:
     /// @return string: the postfix representation
     virtual string postfix() = 0;
 
-    /// left subtree
-    /// @return Token*: the left subtree
+    /// m_left subtree
+    /// @return Token*: the m_left subtree
     Token* left() {
         return NULL;
     }
-    /// right subtree
-    /// @return Token*: the right subtree
+    /// m_right subtree
+    /// @return Token*: the m_right subtree
     Token* right() {
         return NULL;
     }
@@ -80,15 +80,15 @@ public:
     /// @return TokenType: the type of the token
     TokenType getTokenType();
 
-    /// Getter for the left subtree
-    /// @return Token*: the left subtree
+    /// Getter for the m_left subtree
+    /// @return Token*: the m_left subtree
     virtual Token* getLeft()
     {
         return NULL;
     }
 
-    /// Getter for the right subtree
-    /// @return Token*: the right subtree
+    /// Getter for the m_right subtree
+    /// @return Token*: the m_right subtree
     virtual Token* getRight()
     {
         return NULL;

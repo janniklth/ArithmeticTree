@@ -1,171 +1,76 @@
-#pragma once
+#ifndef ARITHMETIC_TREE_OPERATOR_HPP
+#define ARITHMETIC_TREE_OPERATOR_HPP
 
 #include <iostream>
 #include <string>
 #include "Token.hpp"
 #include <sstream>
 
-/*
- * Baumknoten und Token zur Darstellung eines Operators.
- */
+/// Operator node class
+/// @brief node class representing an operator
 class Operator : public Token
 {
 
-    Token *left, *right;
-
-public: 
-
-    /*
-     * Erzeugt einen neuen Operator-Knoten.
-     * 
-     * Parameter: t der Typ des Knotens: '+', '-', '*' oder '/'
-     * Parameter: l der linke Unterbaum
-     * Parameter: r der rechte Unterbaum
-     */
-    Operator(string s, Token *l, Token *r)
+public:
+    /// overloaded constructor, creates a new operator node
+    /// @param s: the operator (´+´, ´-´, ´*´ or ´/´)
+    /// @param l: the left subtree
+    /// @param r: the right subtree
+    Operator(string operator_value, Token *left_token, Token *right_token)
 	{
-        m_value = s;
+        m_value = operator_value;
+        m_left = left_token;
+        m_right = right_token;
         m_tokenType = TokenType::OPERATOR;
-        left = l;
-        right = r;
     }
-    
-    /*
-     * Erzeugt einen neuen Operator-Token.
-     * 
-     * Parameter: t der Typ des Tokens: '+', '-', '*' oder '/'
-     */
+
+    /// overloaded constructor, creates a new operator token
+    /// @param s: the operator (´+´, ´-´, ´*´ or ´/´)
     Operator(char s)
 	{
         m_tokenType = TokenType::OPERATOR;
         m_value = s;
-        left = NULL;
-        right = NULL;
-		// cout << "Operator added: " << t << endl;
-    }
-
-    Token *getLeft() override
-    {
-        return left;
-    }
-
-    Token *getRight() override
-    {
-        return right;
-    }
-
-    int returnValue = 0;
-    int eval() 
-	{
-        // if tree is empty
-        if (getValue() == "") {
-            return 0;
-        }
-
-        if (!getLeft() && !getRight()) {
-            // Leaf node (Operand)
-            std::istringstream iss(getValue());
-            int value;
-            iss >> value;
-            return value;
-        }
-
-        int left_value = left->eval();
-        int right_value = right->eval();
-
-        if (getValue() == "+")
-        {
-            return left_value + right_value;
-        }
-        else if (getValue() == "-")
-        {
-            return left_value - right_value;
-        }
-        else if (getValue() == "*")
-        {
-            return left_value * right_value;
-        }
-        else if (getValue() == "/")
-        {
-            return left_value / right_value;
-        }
-        return 1; // Default case (should not reach here)
+        m_left = NULL;
+        m_right = NULL;
     }
 
 
-    string prefix()
-	{
-        string prefix_return = "";
+    /// evaluate result of the tree/subtree
+    /// @return int: the result of the evaluation
+    int eval() override;
 
-        prefix_return += getValue() + " ";
-        prefix_return += left->prefix();
-        prefix_return += right->prefix();
+    /// method to return the postfix representation of the tree/subtree
+    /// @return string: the postfix representation of the tree/subtree
+    string prefix() override;
 
-        return prefix_return; // remove this line
-    }
+    /// method to return the infix representation of the tree/subtree
+    /// @return string: the infix representation of the tree/subtree
+    string infix() override;
 
-    string infix()
-	{
-        string infix_return = "";
-
-        // put an opening bracket to the start of the string
-        if (left != NULL && right != NULL)
-            infix_return += "(";
+    /// method to return the postfix representation of the tree/subtree
+    /// @return string: the postfix representation of the tree/subtree
+    string postfix() override;
 
 
-        infix_return += left->infix();
-        infix_return += " " + getValue() + " ";
-        infix_return += right->infix();
-
-        // put an closing bracket to the end of the string
-        if (left != NULL && right != NULL)
-            infix_return += ")";
-
-        return infix_return; // remove this line
-    }
-    string postfix() 
-	{
-        string postfix_return = "";
+    /// TODO: implement order() method, what does it do?
+    /// numerates the tree starting from the current node using a counter in infix order, important for visualization
+    /// @param o: the counter
+    void order(Order *o);
 
 
-        postfix_return += left->postfix();
-        postfix_return += right->postfix();
-        postfix_return += getValue() + " ";
+    // - - - - - Getter and Setter - - - - -
 
-        return postfix_return; // remove this line
-    }
+    /// Getter for the left subtree/child_node
+    /// @return Token*: the left subtree/child_node
+    Token *getLeft() override;
 
-    int nodes() 
-	{
+    /// Getter for the right subtree/child_node
+    /// @return Token*: the right subtree/child_node
+    Token *getRight() override;
 
-        // to implement ...
-
-        cout << "Die Methode Operator.nodes ist noch nicht implementiert!" << endl;
-
-        return 1; // remove this line
-    }
-
-    int depth() 
-	{
-
-        // to implement ...
-                
-        cout << "Die Methode Operator.depth ist noch nicht implementiert!" << endl;
-
-        return 1; // remove this line
-    }
-
-    /*
-     * Nummeriert den Baum ausgehend vom aktuellen Knoten unter Verwendung eines Zaehlers 
-	 * in Infix-Reihenfolge durch (wichtig fuer die Visualisierung).
-     * 
-     * Parameter: o der Zaehler
-     */
-    void order(Order *o) 
-	{
-        left->order(o);
-        setOrd(++o->counter);
-        right->order(o);
-    }
-
+private:
+    Token *m_left;
+    Token *m_right;
 };
+
+#endif // ARITHMETIC_TREE_OPERATOR_HPP

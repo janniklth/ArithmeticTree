@@ -81,7 +81,7 @@ Token *Evaluator::parsePrefix(vector<Token *>::iterator &i)
     {
         return *i;
     }
-    // else create new operator node and call parsePrefix recursively for the getLeft and right child of the operator
+    // else create new operator node and call parsePrefix recursively for the getLeft and m_right child of the operator
     else
     {
         Operator* operator_node = new Operator((*i)->getValue(), parsePrefix(++i), parsePrefix(++i));
