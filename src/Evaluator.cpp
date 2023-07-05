@@ -37,7 +37,7 @@ void Evaluator::evaluate(string exp, char mode)
     cout << "Infix:   " << e->infix() << " = " << e->eval() << endl;
     cout << "Postfix: " << e->postfix() << " = " << e->eval() << endl;
     cout << "#Knoten: " << e->nodes() << endl;
-    //cout << "Tiefe:   " << e->depth() << endl;
+    cout << "Tiefe:   " << e->depth(e) << endl;
 
     // Grafische Darstellung des arithmetischen Binärbaums
     Visualizer *v = new Visualizer(e, Visualizer::REGULAR); // Layout 1: gleiche Abstände zwischen Knoten

@@ -33,10 +33,13 @@ int Token::nodes()
     return node_counter;
 }
 
-// method to get the depth of the tree
-int Token::depth()
+// method to get the depth of a tree
+int Token::depth(Token* root)
 {
-    return 1;
+    if (root == NULL)
+        return 0;
+    else
+        return 1 + max(depth(root->getLeft()), depth(root->getRight()));
 }
 
 // method to get the value of the token
