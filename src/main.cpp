@@ -14,6 +14,7 @@ int main(int argc, char* argv[])
     string infix2 = "( ( (2 + 2) + (2 + 2) ) * ( (10 / 5) * 3) )";
     string postfix = "10 20 + 30 *";
     string prefix = "+ 10 20";
+
     // Knoten: 5
     // Tiefe: 3
 
