@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ARITHMETIC_TREE_NUMBER_HPP
+#define ARITHMETIC_TREE_NUMBER_HPP
 
 #include <iostream>
 #include <string>
@@ -9,59 +10,50 @@
  */
 class Number : public Token
 {
-    
-	int m_number;
-
-	// to implement ...
 public:
 
-    Number() {} // DIESEN LEEREN STANDARDKONSTRUKTOR NICHT LÖSCHEN
+    // default constructor, creates a new number node
+    Number() {} // DIESEN LEEREN STANDARDKONSTRUKTOR NICHT LÖSCHEN, WIESOOOOO?? TODO: WHY?
 
+    /// overloaded constructor, creates a new number node with the given value
+    /// @param i: the value of the number node
 	Number(int i) {
-        /* cout << "Number added: " << i << endl; */
         m_number = i;
         m_value = to_string(i);
         m_tokenType = TokenType::NUMBER;
     }
 
-    int getNumber() const {
-        return m_number;
-    }
+    /// evaluates the result of the tree/subtree
+    /// @return int: the result of the evaluation
+    int eval() override;
 
-    int eval() 
-	{
-        // if tree is empty
-        if (getValue() == "") {
-            return 0;
-        }
-        else {
-            // turns string into int and returns the int value
-            return stoi(getValue());
-        }
-    }
-    
-    string prefix() 
-	{
-         return m_value + " ";  // remove this line
-    }
-    string infix()
-    {
-        return m_value;  // remove this line
-    }
+    /// method to return the prefix representation of the tree/subtree
+    /// @return string: the prefix representation of the tree/subtree
+    string prefix() override;
 
-	string postfix() 
-	{
-        return m_value + " ";  // remove this line
-    }
-    
-    /*
-     * Nummeriert den Baum ausgehend vom aktuellen Knoten unter Verwendung eines Zählers
-	 * in Infix-Reihenfolge durch (wichtig für die Visualisierung).
-     * 
-     * Parameter: o der Zähler
-     */
-    void order(Order o) 
-	{ 
-		 setOrd(++o.counter); 
-	}
+    /// method to return the infix representation of the tree/subtree
+    /// @return string: the infix representation of the tree/subtree
+    string infix() override;
+
+    /// method to return the postfix representation of the tree/subtree
+    /// @return string: the postfix representation of the tree/subtree
+	string postfix() override;
+
+    /// TODO: implement order() method, what does it do?
+    /// numerates the tree starting from the current node using a counter in infix order, important for visualization
+    /// @param o: the counter
+    void order(Order o);
+
+
+    // - - - - - Getter and Setter - - - - -
+
+    /// Getter for the number value
+    /// @return int: the number value
+    int getNumber() const;
+
+private:
+    /// the value of the number
+    int m_number;
 };
+
+#endif //ARITHMETIC_TREE_NUMBER_HPP
