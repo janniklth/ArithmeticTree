@@ -36,7 +36,7 @@ void Evaluator::evaluate(string exp, char mode)
     cout << "Prefix:  " << e->prefix() << " = " << e->eval() << endl;
     cout << "Infix:   " << e->infix() << " = " << e->eval() << endl;
     cout << "Postfix: " << e->postfix() << " = " << e->eval() << endl;
-    //cout << "#Knoten: " << e->nodes() << endl;
+    cout << "#Knoten: " << e->nodes() << endl;
     //cout << "Tiefe:   " << e->depth() << endl;
 
     // Grafische Darstellung des arithmetischen Binärbaums

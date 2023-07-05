@@ -6,6 +6,7 @@
 #include "Operator.hpp"
 #include "string.h"
 #include "math.h"
+#include "Token.hpp"
 
 using namespace std;
 
@@ -51,6 +52,7 @@ public:
             else if (src[i] == '+' || src[i] == '-' || src[i] == '*' || src[i] == '/')
             {
                 tokens->push_back(new Operator(src[i]));
+                Operator::incNodes();
 
                 //cout << "Operator: " << src[i] << endl;
             }
@@ -61,8 +63,9 @@ public:
                 int number = atoi(src.substr(i, stringLength).c_str());
                 tokens->push_back(new Number(number));
 
-                //cout << "Number: " << m_number << endl;
+                Operator::incNodes();
 
+                // increase i by the length of the number
                 i += log10(number);
             }
         }

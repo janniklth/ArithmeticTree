@@ -24,7 +24,7 @@ public:
         m_tokenType = TokenType::NUMBER;
     }
 
-    int getMNumber() const {
+    int getNumber() const {
         return m_number;
     }
 

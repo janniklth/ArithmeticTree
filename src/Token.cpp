@@ -4,12 +4,16 @@
 
 #include "Token.hpp"
 
+
+// initialize the static variable
+int Token::node_counter = 0;
+
+
 // method to get the order of the node in the infix representation (important for visualization)
 int Token::getOrd()
 {
     return m_ord;
 }
-
 
 // method to set the order of the node in the infix representation (important for visualization)
 void Token::setOrd(int o)
@@ -23,13 +27,13 @@ void Token::order(Order *o)
 
 }
 
-// method to get the number of nodes in the m_tree
+// method to get the number of nodes in the tree
 int Token::nodes()
 {
-    return 1;
+    return node_counter;
 }
 
-// method to get the depth of the m_tree
+// method to get the depth of the tree
 int Token::depth()
 {
     return 1;
@@ -59,4 +63,8 @@ void Token::setTokenType(TokenType t)
     m_tokenType = t;
 }
 
-
+// method to increase the number of nodes in the tree
+void Token::incNodes()
+{
+    node_counter++;
+}

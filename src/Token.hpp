@@ -19,6 +19,9 @@ enum class TokenType
 class Token
 {
 public:
+    // static var to count the nodes
+    static int node_counter;
+
     /// Auswertung
     /// @return int: the result of the evaluation ????
     virtual int eval() = 0;
@@ -46,11 +49,12 @@ public:
         return NULL;
     }
 
-    /// number of nodes in the m_tree
-    /// @return int: the number of nodes in the m_tree
-    /// m_number of nodes in the tree
-    /// @return int: the m_number of nodes in the tree
+    /// number of nodes in the tree
+    /// @return int: the number of nodes in the tree
     int nodes();
+
+    /// method to increase the number of nodes in the tree
+    static void incNodes();
 
     /// depth of the tree
     /// @return int: the depth of the tree
@@ -106,6 +110,7 @@ protected:
     int m_ord;                  // Reihenfolge fuer die Visualisierung
     string m_value;
     TokenType m_tokenType;
+    static int m_nodes;
 };
 
 #endif //ARITHMETIC_TREE_TOKEN_HPP
