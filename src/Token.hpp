@@ -57,8 +57,9 @@ public:
     static void incNodes();
 
     /// depth of the tree
+    /// @param root: the root node of the tree
     /// @return int: the depth of the tree
-    int depth();
+    static int depth(Token* root);
 
     /// numerates the tree starting from the current node using a counter in infix order (important for visualization)
     /// @param o: the counter
