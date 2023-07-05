@@ -30,12 +30,14 @@ public:
 
     int eval() 
 	{
-
-        // to implement ...
-        
-        cout << "Die Methode Number.eval ist noch nicht implementiert!" << endl;
-
-        return 1; // remove this line
+        // if tree is empty
+        if (getValue() == "") {
+            return 0;
+        }
+        else {
+            // turns string into int and returns the int value
+            return stoi(getValue());
+        }
     }
     
     string prefix() 

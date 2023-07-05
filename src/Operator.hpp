@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Token.hpp"
+#include <sstream>
 
 /*
  * Baumknoten und Token zur Darstellung eines Operators.
@@ -56,9 +57,41 @@ public:
     int returnValue = 0;
     int eval() 
 	{
+        // if tree is empty
+        if (getValue() == "") {
+            return 0;
+        }
 
-        return 0; // Default case (should not reach here)
+        if (!getLeft() && !getRight()) {
+            // Leaf node (Operand)
+            std::istringstream iss(getValue());
+            int value;
+            iss >> value;
+            return value;
+        }
+
+        int left_value = left->eval();
+        int right_value = right->eval();
+
+        if (getValue() == "+")
+        {
+            return left_value + right_value;
+        }
+        else if (getValue() == "-")
+        {
+            return left_value - right_value;
+        }
+        else if (getValue() == "*")
+        {
+            return left_value * right_value;
+        }
+        else if (getValue() == "/")
+        {
+            return left_value / right_value;
+        }
+        return 1; // Default case (should not reach here)
     }
+
 
     string prefix()
 	{
@@ -68,16 +101,17 @@ public:
         prefixReturn += left->prefix();
         prefixReturn += right->prefix();
 
-        return prefixReturn; // remove this line
+        return prefix_return; // remove this line
     }
 
     string infix()
 	{
-        string infixReturn = "";
+        string infix_return = "";
 
         // put an opening bracket to the start of the string
         if (left != NULL && right != NULL)
             infixReturn += "(";
+
 
         infixReturn += left->infix();
         infixReturn += " " + getValue() + " ";
@@ -87,17 +121,18 @@ public:
         if (left != NULL && right != NULL)
             infixReturn += ")";
 
-        return infixReturn; // remove this line
+        return infix_return; // remove this line
     }
     string postfix() 
 	{
-        string postfixReturn = "";
+        string postfix_return = "";
+
 
         postfixReturn += left->postfix();
         postfixReturn += right->postfix();
         postfixReturn += getValue() + " ";
 
-        return postfixReturn; // remove this line
+        return postfix_return; // remove this line
     }
 
     int nodes() 
