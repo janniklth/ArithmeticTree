@@ -62,7 +62,6 @@ public:
             return 0;
         }
 
-
         if (!getLeft() && !getRight()) {
             // Leaf node (Operand)
             std::istringstream iss(getValue());
@@ -71,58 +70,65 @@ public:
             return value;
         }
 
-        int leftValue = left->eval();
-        int rightValue = right->eval();
+        int left_value = left->eval();
+        int right_value = right->eval();
 
-        if (getValue() == "+") {
-            return leftValue + rightValue;
-        } else if (getValue() == "-") {
-            return leftValue - rightValue;
-        } else if (getValue() == "*") {
-            return leftValue * rightValue;
-        } else if (getValue() == "/") {
-            return leftValue / rightValue;
+        if (getValue() == "+")
+        {
+            return left_value + right_value;
+        }
+        else if (getValue() == "-")
+        {
+            return left_value - right_value;
+        }
+        else if (getValue() == "*")
+        {
+            return left_value * right_value;
+        }
+        else if (getValue() == "/")
+        {
+            return left_value / right_value;
         }
         return 1; // Default case (should not reach here)
     }
 
-    string prefixReturn = "";
+    string prefix_return = "";
 
     string prefix()
 	{
-        prefixReturn += getValue();
-        prefixReturn += left->prefix();
-        prefixReturn += right->prefix();
+        prefix_return += getValue();
+        prefix_return += left->prefix();
+        prefix_return += right->prefix();
 
-        return prefixReturn; // remove this line
+        return prefix_return; // remove this line
     }
     string infix() 
 	{
-        string infixReturn = "";
+        string infix_return = "";
 
         if (left || right) {
             std::cout << "(";
         }
 
-        infixReturn += left->infix();
-        infixReturn += getValue();
-        infixReturn += right->infix();
+        infix_return += left->infix();
+        infix_return += getValue();
+        infix_return += right->infix();
 
         if (left || right) {
-            infixReturn += ")";
+            infix_return += ")";
         }
 
-        return infixReturn; // remove this line
+        return infix_return; // remove this line
     }
     string postfix() 
 	{
-        string postfixReturn = "";
+        string postfix_return = "";
 
-        postfixReturn += left->postfix();
-        postfixReturn += right->postfix();
-        postfixReturn += getValue();
+        postfix_return += left->postfix();
+        postfix_return += right->postfix();
+        postfix_return += getValue();
 
-        return postfixReturn; // remove this line
+        return postfix_return; // remove this line
     }
 
     int nodes() 

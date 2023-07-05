@@ -35,6 +35,7 @@ public:
             return 0;
         }
         else {
+            // turns string into int and returns the int value
             return stoi(getValue());
         }
     }
