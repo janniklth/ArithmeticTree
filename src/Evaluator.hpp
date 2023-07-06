@@ -7,10 +7,10 @@
 #include <iterator>
 #include <stack>
 
-#include "Token.hpp"
+#include "Token Classes/Token.hpp"
 #include "Tokenizer.hpp"
 #include "Visualizer.hpp"
-#include "Number.hpp"
+#include "Token Classes/Number.hpp"
 
 using namespace std;
 

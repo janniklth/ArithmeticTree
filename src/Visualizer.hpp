@@ -2,7 +2,7 @@
 #define ARITHMETIC_TREE_VISUALIZER_HPP
 
 
-#include "Token.hpp"
+#include "Token Classes/Token.hpp"
 
 #include "iostream"
 

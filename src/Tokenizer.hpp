@@ -4,12 +4,12 @@
 #include <string>
 #include <vector>
 
-#include "Number.hpp"
-#include "Bracket.hpp"
-#include "Operator.hpp"
+#include "Token Classes/Number.hpp"
+#include "Token Classes/Bracket.hpp"
+#include "Token Classes/Operator.hpp"
 #include "string.h"
 #include "math.h"
-#include "Token.hpp"
+#include "Token Classes/Token.hpp"
 
 using namespace std;
 
