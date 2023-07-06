@@ -1,39 +1,52 @@
 # ArithmeticTree
-Dies ist die Readme-Datei für das Programmierprojekt zur Implementierung arithmetischer Bäume mit C++.
+This repository contains a project developed as part of the IT-Automotive study at DHBW Stuttgart. It is a submission for the Algorithms and Complexity course.
 
-## Projektübersicht
-Das Ziel dieses Projekts ist es, ein Programm zu entwickeln, das arithmetische Bäume repräsentiert und verschiedene Operationen auf diesen Bäumen ausführt. Ein arithmetischer Baum ist eine Datenstruktur, die mathematische Ausdrücke darstellt und Operationen wie Addition, Subtraktion, Multiplikation und Division unterstützt.
+## Description
 
-Das Programm wird in C++ implementiert und verwendet die grundlegenden Konzepte der objektorientierten Programmierung. Es wird verschiedene Klassen geben, um den Baum selbst zu repräsentieren und Operationen auf dem Baum auszuführen.
+The ArithmeticTrees project focuses on parsing arithmetic expressions as binary trees in three different representations: prefix, infix, and postfix. The main objective is to build the arithmetic tree based on the input expression and evaluate its result, along with determining the number of nodes and the depth of the tree.
 
-## Klassenübersicht
+### Class Diagram
+
+The project follows the following class diagram:
 ![UML class (1)](https://github.com/janniklth/ArithmeticTree/assets/82065311/4b4b523d-e060-44d8-99f7-22bc43f68395)
 
-## Projektstruktur
-Die Projektstruktur ist wie folgt aufgebaut:
+[https://lucid.app/lucidchart/eaa7f8fd-ea61-4e99-b400-512dbe78189e/edit?invitationId=inv_e00830bc-4495-4c9d-9150-2cfbbdbc1bfa](url)
 
-main.cpp: Dies ist die Hauptdatei des Programms. Sie enthält die main-Funktion und ist der Einstiegspunkt des Programms.
-ArithmeticTree.h und ArithmeticTree.cpp: Diese Dateien enthalten die Definition und Implementierung der Klasse ArithmeticTree, die den arithmetischen Baum repräsentiert.
-TreeNode.h und TreeNode.cpp: Diese Dateien enthalten die Definition und Implementierung der Klasse TreeNode, die einen Knoten im arithmetischen Baum darstellt.
-Utils.h und Utils.cpp: Diese Dateien enthalten Hilfsfunktionen und -methoden, die im Programm verwendet werden.
-Kompilierung und Ausführung
-Um das Programm zu kompilieren und auszuführen, führen Sie die folgenden Schritte aus:
 
-Stellen Sie sicher, dass Sie einen C++-Compiler installiert haben, der den C++-Standard unterstützt, auf dem das Projekt basiert (z. B. C++11, C++14 oder höher).
-Öffnen Sie eine Kommandozeile oder ein Terminalfenster und navigieren Sie zum Projektverzeichnis.
-Kompilieren Sie das Programm mit dem Befehl g++ main.cpp ArithmeticTree.cpp TreeNode.cpp Utils.cpp -o arithmetic_tree.
-Führen Sie das kompilierte Programm mit dem Befehl ./arithmetic_tree (unter Linux/macOS) oder arithmetic_tree.exe (unter Windows) aus.
-Verwendung des Programms
-Nach dem Start des Programms wird eine interaktive Benutzeroberfläche angezeigt, die es Ihnen ermöglicht, verschiedene Operationen auf dem arithmetischen Baum auszuführen. Folgen Sie den Anweisungen auf dem Bildschirm, um die gewünschten Operationen auszuwählen.
+### Features
 
-https://lucid.app/lucidchart/eaa7f8fd-ea61-4e99-b400-512dbe78189e/edit?invitationId=inv_e00830bc-4495-4c9d-9150-2cfbbdbc1bfa
+- Parsing arithmetic expressions in prefix, infix, and postfix notation.
+- Building binary trees from the parsed expressions.
+- Evaluating the result of the arithmetic tree.
+- Determining the number of nodes in the tree.
+- Calculating the depth of the tree.
 
-## Beispielhafte Funktionen, die im Programm implementiert sein könnten, sind:
+## Getting Started
 
-Erstellen eines leeren arithmetischen Baums.
-Einfügen von Zahlen oder mathematischen Ausdrücken in den Baum.
-Ausführen von Operationen wie Addition, Subtraktion, Multiplikation und Division auf dem Baum.
-Ausgabe des Baums in Inorder-, Preorder- oder Postorder-Traversierung.
+### Installation
 
-## Lizenz
-Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen finden Sie in der Datei `LICENSE
+To use the ArithmeticTrees project, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/janniklth/ArithmeticTrees.git`
+2. Navigate to the project directory: `cd ArithmeticTrees`
+
+### Usage
+
+1. Open the project in your preferred IDE.
+2. Configure the input arithmetic expression in the desired notation.
+3. Run the program to parse the expression, build the arithmetic tree, and evaluate the result.
+4. View the output, which includes the evaluated result, the number of nodes, and the depth of the tree.
+
+## Example
+
+```java
+// Example code placeholder
+```
+
+## Contributing
+
+Contributions to the ArithmeticTrees project are welcome. If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.
+
+## License
+
+The ArithmeticTrees project is licensed under the MIT License.
