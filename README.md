@@ -72,7 +72,7 @@ Contributions to the ArithmeticTree project are welcome. If you find any issues 
 
 ## License
 
-This project is licensed under the MIT License. For more information, please see the [LICENSE](LICENSE.md) file.
+This project is licensed under the MIT License. For more information, please see the [LICENSE](LICENSE) file.
 
 ## Contact
 
