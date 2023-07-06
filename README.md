@@ -57,7 +57,7 @@ The project follows the following class diagram:
    ```bash
    ./....
 
-4. Follow the on-console instructions to select the opponents and play the game.
+4. ......
 
 
 ## Example
