@@ -7,7 +7,7 @@
 // evaluates the result of the tree/subtree
 int Number::eval()
 {
-    // if tree is empty
+    // return 0 if the tree is empty TODO: wirklich nötig dieser comment?
     if (getValue() == "") {
         return 0;
     }
@@ -20,19 +20,19 @@ int Number::eval()
 // method to return the prefix representation of the tree/subtree
 string Number::prefix()
 {
-    return m_value + " ";  // remove this line
+    return m_value + " ";
 }
 
 // method to return the infix representation of the tree/subtree
 string Number::infix()
 {
-    return m_value;  // remove this line
+    return m_value;
 }
 
 // method to return the postfix representation of the tree/subtree
 string Number::postfix()
 {
-    return m_value + " ";  // remove this line
+    return m_value + " ";
 }
 
 // numerates the tree starting from the current node using a counter in infix order, important for visualization
