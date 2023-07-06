@@ -13,6 +13,15 @@ The project follows the following class diagram:
 [https://lucid.app/lucidchart/eaa7f8fd-ea61-4e99-b400-512dbe78189e/edit?invitationId=inv_e00830bc-4495-4c9d-9150-2cfbbdbc1bfa](url)
 
 
+- `Token`: .....
+   - `Operator`: .....
+   - `Bracket`: .....
+   - `Number`: .....
+- `Evaluator`: ....
+- `Tokenizer`: ....
+- `Visuazlizer`: ....
+
+
 ### Features
 
 - Parsing arithmetic expressions in prefix, infix, and postfix notation.
@@ -23,30 +32,48 @@ The project follows the following class diagram:
 
 ## Getting Started
 
+### Prerequisites
+
+- C++ compiler
+
 ### Installation
 
-To use the ArithmeticTrees project, follow these steps:
+1. Clone the repository:
 
-1. Clone the repository: `git clone https://github.com/janniklth/ArithmeticTrees.git`
-2. Navigate to the project directory: `cd ArithmeticTrees`
+   ```bash
+   git clone https://github.com/janniklth/ArithmeticTree.git
+
+2. Compile the source code using a C++ compiler:
+
+   ```bash
+   g++ main.cpp -o .....
 
 ### Usage
 
-1. Open the project in your preferred IDE.
-2. Configure the input arithmetic expression in the desired notation.
-3. Run the program to parse the expression, build the arithmetic tree, and evaluate the result.
-4. View the output, which includes the evaluated result, the number of nodes, and the depth of the tree.
+1. Navigate to the project directory.
+
+2. Run the compiled executable:
+
+   ```bash
+   ./....
+
+4. Follow the on-console instructions to select the opponents and play the game.
+
 
 ## Example
 
-```java
+```c++
 // Example code placeholder
 ```
 
 ## Contributing
 
-Contributions to the ArithmeticTrees project are welcome. If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.
+Contributions to the ArithmeticTree project are welcome. If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.
 
 ## License
 
-The ArithmeticTrees project is licensed under the MIT License.
+This project is licensed under the MIT License. For more information, please see the [LICENSE](LICENSE.md) file.
+
+## Contact
+
+Thank you for checking out our project. We hope it is fun to experiment and helpful in expanding your knowledge of C++ and binary trees. If you have any questions, don't hesitate to contact ous.
