@@ -29,7 +29,7 @@ public:
     Operator(char operator_value)
 	{
         m_tokenType = TokenType::OPERATOR;
-        m_value = operator_value
+        m_value = operator_value;
         m_left = NULL;
         m_right = NULL;
     }
