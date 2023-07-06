@@ -8,10 +8,12 @@
 int Operator::eval()
 {
     // if tree is empty
+    // TODO: @carl ja was dann, sieht jeder was die bedingung ist! :)
     if (getValue() == "") {
         return 0;
     }
 
+    // TODO: @carl kommentar was tuts hier?
     if (!getLeft() && !getRight()) {
         // Leaf node (Operand)
         std::istringstream iss(getValue());
@@ -20,24 +22,22 @@ int Operator::eval()
         return value;
     }
 
-    int left_value = m_left->eval();
-    int right_value = m_right->eval();
-
+    // return the mathematical result of the operation of the left and right subtree
     if (getValue() == "+")
     {
-        return left_value + right_value;
+        return m_left->eval() + m_right->eval();
     }
     else if (getValue() == "-")
     {
-        return left_value - right_value;
+        return m_left->eval() - m_right->eval();
     }
     else if (getValue() == "*")
     {
-        return left_value * right_value;
+        return m_left->eval() * m_right->eval();
     }
     else if (getValue() == "/")
     {
-        return left_value / right_value;
+        return m_left->eval() / m_right->eval();
     }
     return 1; // Default case (should not reach here)
 }
@@ -45,49 +45,39 @@ int Operator::eval()
 // method to return the prefix representation of the tree/subtree
 string Operator::prefix()
 {
-    string prefix_return = "";
-
-    prefix_return += getValue() + " ";
-    prefix_return += m_left->prefix();
-    prefix_return += m_right->prefix();
-
-    return prefix_return; // remove this line
+    // return the prefix representation of the left and right subtree behind the operator
+    return getValue() + " " + m_left->prefix() + m_right->prefix();
 }
 
 // method to return the infix representation of the tree/subtree
 string Operator::infix()
 {
-    string infix_return = "";
+    string infix_representation;
 
     // put an opening bracket to the start of the string
     if (m_left != NULL && m_right != NULL)
-        infix_return += "(";
+        infix_representation += "(";
 
+    // add the infix representation of the left and right subtree to the string, separated by the operator
+    infix_representation += m_left->infix() + " " + getValue() + " " + m_right->infix();
 
-    infix_return += m_left->infix();
-    infix_return += " " + getValue() + " ";
-    infix_return += m_right->infix();
-
-    // put an closing bracket to the end of the string
+    // put a closing bracket to the end of the string, when the node has two children
+    // TODO: jannik does not understand this part
     if (m_left != NULL && m_right != NULL)
-        infix_return += ")";
+        infix_representation += ")";
 
-    return infix_return; // remove this line
+    return infix_representation;
 }
 
 // method to return the postfix representation of the tree/subtree
 string Operator::postfix()
 {
-    string postfix_return = "";
-
-    postfix_return += m_left->postfix();
-    postfix_return += m_right->postfix();
-    postfix_return += getValue() + " ";
-
-    return postfix_return; // remove this line
+    // return the postfix representation of the left and right subtree before the operator
+    return m_left->postfix() + m_right->postfix() + getValue() + " ";
 }
 
 // TODO: implement order() method, what does it do?
+// numerates the tree starting from the current node using a counter in infix order, important for visualization
 void Operator::order(Order *o)
 {
     m_left->order(o);

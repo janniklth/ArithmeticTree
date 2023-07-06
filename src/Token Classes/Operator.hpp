@@ -13,9 +13,9 @@ class Operator : public Token
 
 public:
     /// overloaded constructor, creates a new operator node
-    /// @param s: the operator (´+´, ´-´, ´*´ or ´/´)
-    /// @param l: the left subtree
-    /// @param r: the right subtree
+    /// @param operator_value: the operator (´+´, ´-´, ´*´ or ´/´)
+    /// @param left_token: the left subtree
+    /// @param right_token: the right subtree
     Operator(string operator_value, Token *left_token, Token *right_token)
 	{
         m_value = operator_value;
@@ -26,10 +26,10 @@ public:
 
     /// overloaded constructor, creates a new operator token
     /// @param s: the operator (´+´, ´-´, ´*´ or ´/´)
-    Operator(char s)
+    Operator(char operator_value)
 	{
         m_tokenType = TokenType::OPERATOR;
-        m_value = s;
+        m_value = operator_value
         m_left = NULL;
         m_right = NULL;
     }
@@ -50,7 +50,6 @@ public:
     /// method to return the postfix representation of the tree/subtree
     /// @return string: the postfix representation of the tree/subtree
     string postfix() override;
-
 
     /// TODO: implement order() method, what does it do?
     /// numerates the tree starting from the current node using a counter in infix order, important for visualization
