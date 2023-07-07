@@ -26,11 +26,12 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    // read the input string and the mode
-    // spacings are allowed in the input string
+    // read the inout string and combine all arguments to the expression, even if they are separated by spaces
     for (int i = 1; i < argc - 1; i++) {
         input += argv[i];
     }
+
+    // give the last parameter to mode
     mode = argv[argc - 1][0];
 
     // print out the arguments
@@ -38,9 +39,7 @@ int main(int argc, char* argv[])
     std::cout << "Zeichen: " << mode << std::endl;
 
     // evaluate the expression
-
     e.evaluate(input, mode);
-
 
     // Test cases for test strings
     //e.evaluate(prefix, '<');
