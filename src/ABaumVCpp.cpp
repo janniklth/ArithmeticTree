@@ -41,7 +41,6 @@ void main_jonas(int argc, char* argv[])
 			exp = exp.substr(1);
         else 
 			mode = '|'; // Standard: Infix
-        
 		Evaluator e;
 		e.evaluate(exp, mode);
     }
