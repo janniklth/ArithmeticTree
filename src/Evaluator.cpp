@@ -32,23 +32,17 @@ void Evaluator::evaluate(string exp, char mode)
     // #Knoten: 9
     // Tiefe:   4
 
-    // Ausgabe des arithmetischen Ausdrucks
+    // output of the expression and its evaluation
     cout << "Prefix:  " << e->prefix() << " = " << e->eval() << endl;
     cout << "Infix:   " << e->infix() << " = " << e->eval() << endl;
     cout << "Postfix: " << e->postfix() << " = " << e->eval() << endl;
     cout << "#Knoten: " << e->nodes() << endl;
     cout << "Tiefe:   " << e->depth(e) << endl;
 
-    // Grafische Darstellung des arithmetischen Binärbaums
-    Visualizer *v = new Visualizer(e, Visualizer::REGULAR); // Layout 1: gleiche Abstände zwischen Knoten
-    //Visualizer v = new Visualizer(e, Visualizer::BINARY); // Layout 2: binäre Unterteilung
 
+    // graphical representation of the tree
     cout << "Grafische Darstellung des Baumes:" << endl;
-    v->printTree(e);
-
-    // Text-/Grafikfenster sichtbar machen
-    // ...
-
+    Visualizer::printSimpleTree(e);
 }
 
 
