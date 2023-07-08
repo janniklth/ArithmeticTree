@@ -48,18 +48,26 @@ The project follows the following class diagram:
 2. Compile the source code using a C++ compiler:
 
    ```bash
-   g++ main.cpp -o .....
+   g++ main.cpp -o executable
 
 ### Usage
 
 1. Navigate to the project directory.
 
-2. Run the compiled executable:
+2. Run the compiled executable and enter an arithmetic expression and the given notation:
 
    ```bash
-   ./....
+   ./executable expression notation
+    ```
+   Example: 
 
-4. ......
+    ```bash
+    ./executable (((2 + 2) + (2 + 2)) * ((10 / 5) * 3))  |
+    ```
+
+
+
+4. The program will parse the expression, build the arithmetic tree, and evaluate and visualize the result.
 
 
 ## Example
