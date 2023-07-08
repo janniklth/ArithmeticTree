@@ -59,7 +59,7 @@ The project follows the following class diagram:
    ```bash
    ./executable expression notation
     ```
-   Example: 
+   Infix-Example: 
 
     ```bash
     ./executable (((2 + 2) + (2 + 2)) * ((10 / 5) * 3))  |
