@@ -8,18 +8,20 @@ The ArithmeticTrees project focuses on parsing arithmetic expressions as binary 
 ### Class Diagram
 
 The project follows the following class diagram:
+
 ![UML class (1)](https://github.com/janniklth/ArithmeticTree/assets/82065311/4b4b523d-e060-44d8-99f7-22bc43f68395)
 
 [https://lucid.app/lucidchart/eaa7f8fd-ea61-4e99-b400-512dbe78189e/edit?invitationId=inv_e00830bc-4495-4c9d-9150-2cfbbdbc1bfa](url)
 
 
-- `Token`: .....
-   - `Operator`: .....
-   - `Bracket`: .....
-   - `Number`: .....
-- `Evaluator`: ....
-- `Tokenizer`: ....
-- `Visuazlizer`: ....
+
+- `Token`: pure virtual class representing a token, which is either an operator, a bracket, or a number
+   - `Operator`: represents an operator token, which is either `+`, `-`, `*`, or `/`
+   - `Bracket`: represents a bracket token, which is either `(` or `)` 
+   - `Number`: represents a number token, which is a positive integer
+- `Evaluator`: evaluates the result of an arithmetic tree, by traversing the tree and calculating the result
+- `Tokenizer`: parses an arithmetic expression into a vector of Token objects
+- `Visualizer`: visualizes an arithmetic tree in the terminal, by printing the tree in a tree-like structure
 
 
 ### Features
