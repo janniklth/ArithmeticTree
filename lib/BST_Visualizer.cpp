@@ -6,19 +6,20 @@
 
 #include <iomanip>
 #include <iostream>
+#include <cmath>
 
-BST_Visualizer::BST_Visualizer(Token* tree, int node_length /* = -1 */, int space_length /* = -1 */)
+// constructor
+BST_Visualizer::BST_Visualizer(Token* root, int node_length /* = -1 */, int space_length /* = -1 */)
 {
 
     auto min_node_len = 0;
     auto min_space_len = 0;
 
     // Initialize tree-related variables
-    tree_                 = tree;
-    tree_root_            = tree_.get_root();
+    tree_root_            = root;
     tree_height_          = get_tree_height(tree_root_);
     tree_nodes_           = get_nodes_count(tree_height_) - 1;
-    queue<node<T>*> nodes = breadth_first_search();
+    queue<Token*> nodes = breadth_first_search();
 
     // Initialize values_ array
     values_ = new string*[tree_nodes_];
@@ -29,7 +30,7 @@ BST_Visualizer::BST_Visualizer(Token* tree, int node_length /* = -1 */, int spac
         {
             // Convert node to string and add it to values vector
             // also add empty string if node is empty
-            auto value = nodes.front() == nullptr ? "" : to_string(nodes.front()->get_value());
+            auto value = nodes.front() == nullptr ? "" : nodes.front()->getValue();
             values_[level][node] = value;
             nodes.pop();
 
@@ -81,23 +82,23 @@ queue<Token*> BST_Visualizer::breadth_first_search()
 }
 
 
-template <class T>
-int visualizer<T>::get_tree_height(node<T>* root) const
+
+int BST_Visualizer::get_tree_height(Token* root) const
 {
     if (root == nullptr) return 0;
-    const int left_height  = get_tree_height(root->get_left());
-    const int right_height = get_tree_height(root->get_right());
+    const int left_height  = get_tree_height(root->getLeft());
+    const int right_height = get_tree_height(root->getRight());
     return left_height > right_height ? left_height + 1 : right_height + 1;
 }
 
-template <class T>
-int visualizer<T>::get_nodes_count(const int level) const
+
+int BST_Visualizer::get_nodes_count(const int level) const
 {
     return int(pow(2, level));
 }
 
-template <class T>
-int visualizer<T>::get_subtree_width(const int level) const
+
+int BST_Visualizer::get_subtree_width(const int level) const
 {
     const auto levels_below = tree_height_ - level - 1;
     const auto nodes_count  = get_nodes_count(levels_below);
@@ -105,8 +106,8 @@ int visualizer<T>::get_subtree_width(const int level) const
     return node_length_ * nodes_count + space_length_ * spaces_count;
 }
 
-template <class T>
-void visualizer<T>::visualize() const
+
+void BST_Visualizer::visualize() const
 {
 
     const auto last_level = tree_height_ - 1;
