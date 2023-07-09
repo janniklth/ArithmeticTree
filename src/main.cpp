@@ -1,3 +1,7 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
 #include <iostream>
 #include "Evaluator.hpp"
 

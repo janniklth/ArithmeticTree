@@ -1,6 +1,9 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
 #ifndef ARITHMETIC_TREE_TOKEN_HPP
 #define ARITHMETIC_TREE_TOKEN_HPP
-
 
 #include <string>
 #include "../Order.hpp"

@@ -1,9 +1,12 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
 #pragma once
 
 #include <iostream>
 #include <string>
 #include "Token.hpp"
-
 
 /// Bracket node class
 /// @brief node class representing a bracket
