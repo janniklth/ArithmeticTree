@@ -6,7 +6,6 @@
 #define ARITHMETIC_TREE_TOKEN_HPP
 
 #include <string>
-#include "../Order.hpp"
 
 using namespace std;
 
