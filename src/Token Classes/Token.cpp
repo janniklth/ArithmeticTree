@@ -21,11 +21,6 @@ void Token::setOrd(int o)
     m_ord = o;
 }
 
-// method to numerate the m_tree starting from the current node using a counter in infix order (important for visualization)
-void Token::order(Order *o)
-{
-
-}
 
 // method to get the number of nodes in the tree
 int Token::nodes()

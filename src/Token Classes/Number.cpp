@@ -35,12 +35,6 @@ string Number::postfix()
     return m_value + " ";
 }
 
-// numerates the tree starting from the current node using a counter in infix order, important for visualization
-void Number::order(Order o)
-{
-    setOrd(++o.counter);
-}
-
 // - - - - - Getter and Setter - - - - -
 
 // Getter for the number value of the node

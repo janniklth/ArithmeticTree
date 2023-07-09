@@ -63,10 +63,6 @@ public:
     /// @return int: the depth of the tree
     static int depth(Token* root);
 
-    /// numerates the tree starting from the current node using a counter in infix order (important for visualization)
-    /// @param o: the counter
-    void order(Order *o);
-
 
     // - - - - - - Getter and Setter - - - - - - -
 
