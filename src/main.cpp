@@ -41,8 +41,8 @@ bool parse_arguments(int argc, char *argv[], char *mode, string *input)
 
         // check for expression
         if (!strcmp(argv[i], "-e")) {
-            // put all strings from arguments in input until next '-'
-            while (i + 1 < argc - 1 && strcmp(argv[i + 1], "-m") != 0) {
+            // put argument in the input var until an "-m"
+            while (strcmp(argv[i + 1], "-m") != 0) {
                 *input += argv[i + 1];
                 i++;
             }
