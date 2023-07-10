@@ -1,3 +1,7 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
 #ifndef ARITHMETIC_TREE_NUMBER_HPP
 #define ARITHMETIC_TREE_NUMBER_HPP
 
@@ -18,7 +22,7 @@ public:
 	Number(int number_value) {
         m_number = number_value;
         m_value = to_string(number_value);
-        m_tokenType = TokenType::NUMBER;
+        m_tokenType = TokenTypeABC::NUMBER;
     }
 
     /// evaluates the result of the tree/subtree
@@ -36,11 +40,6 @@ public:
     /// method to return the postfix representation of the tree/subtree
     /// @return string: the postfix representation of the tree/subtree
 	string postfix() override;
-
-    /// TODO: implement order() method, what does it do?
-    /// numerates the tree starting from the current node using a counter in infix order, important for visualization
-    /// @param o: the counter
-    void order(Order o);
 
 
     // - - - - - Getter and Setter - - - - -

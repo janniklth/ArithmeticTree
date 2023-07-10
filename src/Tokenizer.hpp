@@ -1,3 +1,7 @@
+/*
+ *  author:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ *  version:    1.0
+ */
 #ifndef ARITHMETIC_TREE_TOKENIZER_HPP
 #define ARITHMETIC_TREE_TOKENIZER_HPP
 
@@ -7,9 +11,10 @@
 #include "Token Classes/Number.hpp"
 #include "Token Classes/Bracket.hpp"
 #include "Token Classes/Operator.hpp"
+#include "Token Classes/Token.hpp"
+
 #include "string.h"
 #include "math.h"
-#include "Token Classes/Token.hpp"
 
 using namespace std;
 

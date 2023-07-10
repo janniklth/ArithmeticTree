@@ -1,9 +1,12 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
 #pragma once
 
 #include <iostream>
 #include <string>
 #include "Token.hpp"
-
 
 /// Bracket node class
 /// @brief node class representing a bracket
@@ -14,7 +17,7 @@ public:
     /// @param bracket: the value of the bracket node (´(´ or ´)´)
     Bracket(char bracket_value)
     {
-        m_tokenType = TokenType::BRACKET;
+        m_tokenType = TokenTypeABC::BRACKET;
         m_value = bracket_value;
     }
 
@@ -50,8 +53,4 @@ public:
         return "";
     }
 
-    /// Dummy-method, does nothing
-    /// @param o: dummy parameter
-    /// TODO: evaluate if its better to make the b ase function not pure virtual
-    void order(Order o) {}
 };
