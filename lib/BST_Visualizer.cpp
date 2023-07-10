@@ -82,7 +82,7 @@ queue<Token*> BST_Visualizer::breadth_first_search()
 }
 
 
-
+// method to return the height of a tree
 int BST_Visualizer::get_tree_height(Token* root) const
 {
     if (root == nullptr) return 0;
@@ -91,13 +91,13 @@ int BST_Visualizer::get_tree_height(Token* root) const
     return left_height > right_height ? left_height + 1 : right_height + 1;
 }
 
-
+// method to return the number of nodes at a given level
 int BST_Visualizer::get_nodes_count(const int level) const
 {
     return int(pow(2, level));
 }
 
-
+// method to return the width of a subtree at a given level
 int BST_Visualizer::get_subtree_width(const int level) const
 {
     const auto levels_below = tree_height_ - level - 1;
@@ -106,7 +106,7 @@ int BST_Visualizer::get_subtree_width(const int level) const
     return node_length_ * nodes_count + space_length_ * spaces_count;
 }
 
-
+// method to print the tree from top to bottom
 void BST_Visualizer::visualize() const
 {
 
