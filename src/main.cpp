@@ -38,14 +38,17 @@ bool parse_arguments(int argc, char *argv[], char *mode, string *input)
 
     // loop over all arguments to read the arguments
     for (int i = 0; i < argc - 1; i++) {
+
+        // check for expression
         if (!strcmp(argv[i], "-e")) {
-            // put all sings from arguments in input until next '-'
+            // put all strings from arguments in input until next '-'
             while (i + 1 < argc - 1 && strcmp(argv[i + 1], "-m") != 0) {
                 *input += argv[i + 1];
                 i++;
             }
         }
 
+        // check for mode
         else if (!strcmp(argv[i], "-m"))
         {
             if (!strcasecmp(argv[i + 1], "PREFIX"))
@@ -65,12 +68,11 @@ bool parse_arguments(int argc, char *argv[], char *mode, string *input)
             }
             else
             {
-                cout << "ERROR: %s is not allowed for -e " <<  argv[i + 1] << endl;
+                cout << "ERROR: argument for mode (-m) is not correct: " <<  argv[i + 1] << endl;
                 is_successful = false;
             }
         }
     }
-
     return is_successful;
 }
 
