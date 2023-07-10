@@ -21,14 +21,14 @@ public:
         m_value = operator_value;
         m_left = left_token;
         m_right = right_token;
-        m_tokenType = TokenType::OPERATOR;
+        m_tokenType = TokenTypeABC::OPERATOR;
     }
 
     /// overloaded constructor, creates a new operator token
     /// @param s: the operator (´+´, ´-´, ´*´ or ´/´)
     Operator(char operator_value)
 	{
-        m_tokenType = TokenType::OPERATOR;
+        m_tokenType = TokenTypeABC::OPERATOR;
         m_value = operator_value;
         m_left = NULL;
         m_right = NULL;

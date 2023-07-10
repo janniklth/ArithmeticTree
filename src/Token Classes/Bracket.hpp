@@ -14,7 +14,7 @@ public:
     /// @param bracket: the value of the bracket node (´(´ or ´)´)
     Bracket(char bracket_value)
     {
-        m_tokenType = TokenType::BRACKET;
+        m_tokenType = TokenTypeABC::BRACKET;
         m_value = bracket_value;
     }
 

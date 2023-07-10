@@ -1,5 +1,12 @@
+#if defined(WIN32) || defined(WIN64)
+#include <Windows.h>
+#endif
+
 #include <iostream>
 #include "Evaluator.hpp"
+#include <cstdlib>
+
+
 
 using namespace std;
 
@@ -10,6 +17,12 @@ static int node_counter;
 
 int main(int argc, char* argv[])
 {
+    #if defined(WIN32) || defined(WIN64)
+         SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+
+
     string input = " ";
     char mode = 0;
     Evaluator e;

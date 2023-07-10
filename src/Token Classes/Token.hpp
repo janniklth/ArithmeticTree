@@ -8,8 +8,7 @@
 using namespace std;
 
 
-enum class TokenType
-{
+enum class TokenTypeABC {
     NUMBER,
     OPERATOR,
     BRACKET
@@ -78,7 +77,7 @@ public:
 
     /// Getter for the type of the token
     /// @return TokenType: the type of the token
-    TokenType getTokenType();
+    TokenTypeABC getTokenType();
 
     /// Getter for the m_left subtree
     /// @return Token*: the m_left subtree
@@ -104,13 +103,13 @@ public:
 
     /// Setter for the type of the token
     /// @param t: the type of the token
-    void setTokenType(TokenType t);
+    void setTokenType(TokenTypeABC t);
 
 
 protected:
     int m_ord;                  // Reihenfolge fuer die Visualisierung
     string m_value;
-    TokenType m_tokenType;
+    TokenTypeABC m_tokenType;
     static int m_nodes;
 };
 

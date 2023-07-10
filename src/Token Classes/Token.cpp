@@ -55,13 +55,13 @@ void Token::setValue(string s)
 }
 
 // method to get the type of the token
-TokenType Token::getTokenType()
+TokenTypeABC Token::getTokenType()
 {
     return m_tokenType;
 }
 
 // method to set the type of the token
-void Token::setTokenType(TokenType t)
+void Token::setTokenType(TokenTypeABC t)
 {
     m_tokenType = t;
 }
