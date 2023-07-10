@@ -1,6 +1,6 @@
-//
-// Created by Jannik Loth on 05.07.23.
-//
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
 
 #include "Operator.hpp"
 
@@ -74,15 +74,6 @@ string Operator::postfix()
 {
     // return the postfix representation of the left and right subtree before the operator
     return m_left->postfix() + m_right->postfix() + getValue() + " ";
-}
-
-// TODO: implement order() method, what does it do?
-// numerates the tree starting from the current node using a counter in infix order, important for visualization
-void Operator::order(Order *o)
-{
-    m_left->order(o);
-    setOrd(++o->counter);
-    m_right->order(o);
 }
 
 

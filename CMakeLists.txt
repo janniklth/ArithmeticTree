@@ -16,6 +16,4 @@ add_executable(ArithmeticTree
         "src/Token Classes/Number.hpp"
         "src/Token Classes/Number.cpp"
         "src/Token Classes/Bracket.hpp"
-        src/Evaluator.hpp
-        src/Evaluator.cpp
-        src/Order.hpp)
+        src/Evaluator.hpp) 
