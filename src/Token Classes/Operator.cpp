@@ -76,7 +76,6 @@ string Operator::postfix()
     return m_left->postfix() + m_right->postfix() + getValue() + " ";
 }
 
-
 // - - - - - Getter and Setter - - - - -
 
 // Getter for the left subtree/child_node
