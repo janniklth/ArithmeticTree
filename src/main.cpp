@@ -10,10 +10,67 @@
 #include <iostream>
 #include "Evaluator.hpp"
 
+
 using namespace std;
 
 // static var to count the nodes
 static int node_counter;
+
+// function to parse arguments and check if all arguments are given
+bool parse_arguments(int argc, char *argv[], char *mode, string *input)
+{
+    // initialise a var to store if the parsing was successful
+    bool is_successful = true;
+
+    // initialise three vars to store if all three wanted arguments are in the list
+    bool argument_m = false, argument_e = false;
+
+    // loop over all arguments to check if the arguments contains all three arguments
+    for (int i = 0; i < argc; i++) {
+        if (strcmp(argv[i], "-m") == 0) { argument_m = true; }
+        if (strcmp(argv[i], "-e") == 0) { argument_e = true; }
+    }
+
+    // check if all arguments are given, if not throw a specific error an exit
+    if (!argument_m) { cout << "ERROR: argument -m for the mode is missing" << endl; is_successful = false;}
+    if (!argument_e) { cout << "ERROR: argument -e for the expression is missing" << endl; is_successful = false;}
+    if (!is_successful) {return is_successful;};
+
+    // loop over all arguments to read the arguments
+    for (int i = 0; i < argc - 1; i++) {
+        if (!strcmp(argv[i], "-e")) {
+            // set input to argv[i + 1]
+            *input = argv[i + 1];
+            i++;
+        }
+
+        else if (!strcmp(argv[i], "-m"))
+        {
+            if (!strcasecmp(argv[i + 1], "PREFIX"))
+            {
+                *mode = '<';
+                i++;
+            }
+            else if (!strcasecmp(argv[i + 1], "INFIX"))
+            {
+                *mode = '|';
+                i++;
+            }
+            else if (!strcasecmp(argv[i + 1], "POSTFIX"))
+            {
+                *mode = '>';
+                i++;
+            }
+            else
+            {
+                cout << "ERROR: %s is not allowed for -e " <<  argv[i + 1] << endl;
+                is_successful = false;
+            }
+        }
+    }
+
+    return is_successful;
+}
 
 
 int main(int argc, char* argv[])
@@ -22,27 +79,17 @@ int main(int argc, char* argv[])
          SetConsoleOutputCP(CP_UTF8);
     #endif
 
+    Evaluator e;
     string input = " ";
     char mode = 0;
-    Evaluator e;
 
-
-    // check if enough arguments are given
-    if (argc < 3) {
-        std::cout << "Zu wenige Argumente angegeben." << std::endl;
+    if (!(parse_arguments(argc, argv, &mode, &input))){
+        cout << "ERROR: parsing arguments failed";
         return 1;
     }
 
-    // read the inout string and combine all arguments to the expression, even if they are separated by spaces
-    for (int i = 1; i < argc - 1; i++) {
-        input += argv[i];
-    }
-
-    // give the last parameter to mode
-    mode = argv[argc - 1][0];
-
     // print out the arguments
-    std::cout << "Rechenausdruck: " << input << std::endl;
+    std::cout << "\n\nRechenausdruck: " << input << std::endl;
     std::cout << "Zeichen: " << mode << std::endl;
 
     // evaluate the expression
