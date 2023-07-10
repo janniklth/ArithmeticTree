@@ -19,8 +19,7 @@ public:
     // overloaded constructor
     Tokenizer(string s)
     {
-        m_src = s + " "; // Das Leerzeichen dient dazu, beim Lesen von Zahlen nicht
-        // über die String-Grenze zu laufen
+        m_src = s + " "; // space at the end to avoid out of range errors
     }
 
     /// splits a string into tokens from type Number, Operator and Bracket

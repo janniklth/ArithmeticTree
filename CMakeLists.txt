@@ -18,5 +18,4 @@ add_executable(ArithmeticTree
         "src/Token Classes/Bracket.hpp"
         src/Evaluator.hpp
         src/Evaluator.cpp
-        src/ABaumVCpp.cpp
         src/Order.hpp)
