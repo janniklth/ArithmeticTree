@@ -10,12 +10,12 @@
 using namespace std;
 
 
-enum class TokenTypeABC {
+enum class TokenTypeABC
+{
     NUMBER,
     OPERATOR,
     BRACKET
 };
-
 
 class Token
 {
@@ -41,12 +41,14 @@ public:
 
     /// m_left subtree
     /// @return Token*: the m_left subtree
-    Token* left() {
+    Token* left()
+    {
         return NULL;
     }
     /// m_right subtree
     /// @return Token*: the m_right subtree
-    Token* right() {
+    Token* right()
+    {
         return NULL;
     }
 

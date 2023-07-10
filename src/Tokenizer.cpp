@@ -7,9 +7,6 @@
 // splits a string into tokens from type Number, Operator and Bracket
 vector<Token *> *Tokenizer::tokenize()
 {
-    // vector that saves the single tokens as strings
-    vector<string> stringVector;       //Testing purposes
-
     // given code from the exercise
     vector<Token *> *tokens = new vector<Token *>();
     vector<Token *>::iterator i = tokens->begin();
@@ -20,14 +17,13 @@ vector<Token *> *Tokenizer::tokenize()
     // iterate over every single char in the string
     for (int i = 0; i < stringLength; i++)
     {
-
         // check if the current char is a bracket and push a new Bracket object to the vector
         if (m_src[i] == '(' || m_src[i] == ')')
         {
             tokens->push_back(new Bracket(m_src[i]));
         }
 
-            // check if the current char is an operator (+, -, *, /) and push a new Operator object to the vector
+        // check if the current char is an operator (+, -, *, /) and push a new Operator object to the vector
         else if (m_src[i] == '+' || m_src[i] == '-' || m_src[i] == '*' || m_src[i] == '/')
         {
             tokens->push_back(new Operator(m_src[i]));

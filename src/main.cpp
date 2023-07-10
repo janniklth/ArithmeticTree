@@ -9,12 +9,8 @@
 
 #include <iostream>
 #include "Evaluator.hpp"
-#include <cstdlib>
-
-
 
 using namespace std;
-
 
 // static var to count the nodes
 static int node_counter;
@@ -26,17 +22,10 @@ int main(int argc, char* argv[])
          SetConsoleOutputCP(CP_UTF8);
     #endif
 
-
-
     string input = " ";
     char mode = 0;
     Evaluator e;
 
-    // test strings
-    string infix = "((10 + 20) * 30)";
-    string infix2 = "( ( (2 + 2) + (2 + 2) ) * ( (10 / 5) * 3) )";
-    string postfix = "10 20 + 30 *";
-    string prefix = "+ 10 20";
 
     // check if enough arguments are given
     if (argc < 3) {
@@ -58,11 +47,6 @@ int main(int argc, char* argv[])
 
     // evaluate the expression
     e.evaluate(input, mode);
-
-    // Test cases for test strings
-    //e.evaluate(prefix, '<');
-    //e.evaluate(infix2, '|');
-    //e.evaluate(postfix, '>');
 
     return 0;
 }
