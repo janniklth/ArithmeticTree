@@ -76,15 +76,6 @@ string Operator::postfix()
     return m_left->postfix() + m_right->postfix() + getValue() + " ";
 }
 
-// TODO: implement order() method, what does it do?
-// numerates the tree starting from the current node using a counter in infix order, important for visualization
-void Operator::order(Order *o)
-{
-    m_left->order(o);
-    setOrd(++o->counter);
-    m_right->order(o);
-}
-
 
 // - - - - - Getter and Setter - - - - -
 

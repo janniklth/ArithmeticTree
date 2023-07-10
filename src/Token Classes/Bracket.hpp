@@ -53,8 +53,4 @@ public:
         return "";
     }
 
-    /// Dummy-method, does nothing
-    /// @param o: dummy parameter
-    /// TODO: evaluate if its better to make the b ase function not pure virtual
-    void order(Order o) {}
 };

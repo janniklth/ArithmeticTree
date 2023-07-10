@@ -18,5 +18,8 @@ add_executable(ArithmeticTree
         "src/Token Classes/Bracket.hpp"
         src/Evaluator.hpp
         src/Evaluator.cpp
+<<<<<<<<< Temporary merge branch 1
         src/ABaumVCpp.cpp
+=========
         src/Order.hpp)
+>>>>>>>>> Temporary merge branch 2

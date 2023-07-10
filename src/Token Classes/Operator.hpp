@@ -55,11 +55,6 @@ public:
     /// @return string: the postfix representation of the tree/subtree
     string postfix() override;
 
-    /// TODO: implement order() method, what does it do?
-    /// numerates the tree starting from the current node using a counter in infix order, important for visualization
-    /// @param o: the counter
-    void order(Order *o);
-
 
     // - - - - - Getter and Setter - - - - -
 
