@@ -1,5 +1,6 @@
 //
-// Created by Jannik Loth on 09.07.23.
+// From: https://github.com/YoussefRaafatNasry/bst-ascii-visualization
+// modified to work with our Token class
 //
 
 #ifndef ARITHMETICTREE_BST_VISUALIZER_HPP
@@ -40,6 +41,5 @@ private:
     int get_nodes_count(int) const;
     int get_subtree_width(int) const;
 };
-
 
 #endif //ARITHMETICTREE_BST_VISUALIZER_HPP

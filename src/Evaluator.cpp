@@ -42,11 +42,11 @@ void Evaluator::evaluate(string exp, char mode)
 
 
     // graphical representation of the tree
-    cout << "Grafische Darstellung des Baumes:" << endl;
+    cout << "\nVisualization by ourself:" << endl;
     Visualizer::printSimpleTree(e);
 
     // test implementation of bst visualization
-    cout << "BST VISUALIZATION:" << endl;
+    cout << "\n\nVisualization by https://github.com/YoussefRaafatNasry/bst-ascii-visualization:\n" << endl;
     BST_Visualizer* bst_visualizer = new BST_Visualizer(e);
     bst_visualizer->visualize();
 }
