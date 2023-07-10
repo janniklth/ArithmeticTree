@@ -9,7 +9,7 @@ The ArithmeticTrees project focuses on parsing arithmetic expressions as binary 
 
 The project follows the following class diagram:
 
-![UML class (1)](https://github.com/janniklth/ArithmeticTree/assets/82065311/4b4b523d-e060-44d8-99f7-22bc43f68395)
+<img src="/UML_ArithmeticTree.png" alt="Alt text" title="Optional title">
 
 [https://lucid.app/lucidchart/eaa7f8fd-ea61-4e99-b400-512dbe78189e/edit?invitationId=inv_e00830bc-4495-4c9d-9150-2cfbbdbc1bfa](url)
 
