@@ -1,9 +1,11 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
 #ifndef ARITHMETIC_TREE_TOKEN_HPP
 #define ARITHMETIC_TREE_TOKEN_HPP
 
-
 #include <string>
-#include "../Order.hpp"
 
 using namespace std;
 
@@ -59,10 +61,6 @@ public:
     /// @param root: the root node of the tree
     /// @return int: the depth of the tree
     static int depth(Token* root);
-
-    /// numerates the tree starting from the current node using a counter in infix order (important for visualization)
-    /// @param o: the counter
-    void order(Order *o);
 
 
     // - - - - - - Getter and Setter - - - - - - -

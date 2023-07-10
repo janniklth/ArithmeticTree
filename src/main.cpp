@@ -1,3 +1,8 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
+
 #if defined(WIN32) || defined(WIN64)
 #include <Windows.h>
 #endif

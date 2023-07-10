@@ -1,6 +1,6 @@
-﻿//
-// Created by Jannik Loth on 03.07.23.
-//
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
 
 #include "Visualizer.hpp"
 
