@@ -123,6 +123,7 @@ void BST_Visualizer::visualize() const
 
         cout << string(node_indentation, ' ');
 
+        // print nodes at the current level
         for (auto node = 0; node < nodes_count; node++)
         {
             const auto node_value = values_[level][node].empty() ? empty_node_ : values_[level][node];
@@ -132,6 +133,7 @@ void BST_Visualizer::visualize() const
 
         cout << endl;
 
+        // print branches to the next node level (enough spacing is added between branches)
         for (auto i = 0; i < branch_height && level != last_level; i++)
         {
             const auto branch_indentation = subtree_width / 2 - 1 - i;
