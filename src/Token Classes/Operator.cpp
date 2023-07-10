@@ -7,14 +7,15 @@
 // method to evaluate the result of the tree/subtree
 int Operator::eval()
 {
-    // if tree is empty
-    // TODO: @carl ja was dann, sieht jeder was die bedingung ist! :)
-    if (getValue() == "") {
+    // if there is nothing in the tree, return 0
+    if (getValue() == "")
+    {
         return 0;
     }
 
-    // TODO: @carl kommentar was tuts hier?
-    if (!getLeft() && !getRight()) {
+    // if the node is a leaf node, return the value of the node
+    if (!getLeft() && !getRight())
+    {
         // Leaf node (Operand)
         std::istringstream iss(getValue());
         int value;

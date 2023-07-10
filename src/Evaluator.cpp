@@ -14,24 +14,6 @@ void Evaluator::evaluate(string exp, char mode)
     // return = Wurzeltoken des Baumes (Operator)
     Token *e = parse(t->tokenize(), mode);
 
-    // Testbaum, falls Tokenizer und/oder Parser noch nicht fertig:
-    /*
-    e = new Operator('+',
-               new Operator('*',
-                      new Number(2),
-                      new Number(3)),
-               new Operator('-',
-                      new Operator('/',
-                             new Number(6),
-                             new Number(2)),
-                      new Number(1)));
-   */
-    // Prefix:  + * 2 3 - / 6 2 1 = 8
-    // Infix:   ((2 * 3) + ((6 / 2) - 1)) = 8
-    // Postfix: 2 3 * 6 2 / 1 - + = 8
-    // #Knoten: 9
-    // Tiefe:   4
-
     // output of the expression and its evaluation
     cout << "Prefix:  " << e->prefix() << " = " << e->eval() << endl;
     cout << "Infix:   " << e->infix() << " = " << e->eval() << endl;
@@ -125,9 +107,6 @@ Token *Evaluator::parseInfix(vector<Token *>::iterator i)
     // loop that iterates through the vector of tokens
     do
     {
-        // compare two
-
-
         // if token is not a closing bracket, push it to the stack
         if ( (*i)->getValue() != ")" )
         {
