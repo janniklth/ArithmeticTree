@@ -3,6 +3,7 @@
  */
 
 #include "Evaluator.hpp"
+#include "../lib/BST_Visualizer.hpp"
 
 // public method to evaluate the expression
 void Evaluator::evaluate(string exp, char mode)
@@ -43,6 +44,11 @@ void Evaluator::evaluate(string exp, char mode)
     // graphical representation of the tree
     cout << "Grafische Darstellung des Baumes:" << endl;
     Visualizer::printSimpleTree(e);
+
+    // test implementation of bst visualization
+    cout << "BST VISUALIZATION:" << endl;
+    BST_Visualizer* bst_visualizer = new BST_Visualizer(e);
+    bst_visualizer->visualize();
 }
 
 
