@@ -1,15 +1,16 @@
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
+
 #ifndef ARITHMETIC_TREE_TOKEN_HPP
 #define ARITHMETIC_TREE_TOKEN_HPP
 
-
 #include <string>
-#include "../Order.hpp"
 
 using namespace std;
 
 
-enum class TokenType
-{
+enum class TokenTypeABC {
     NUMBER,
     OPERATOR,
     BRACKET
@@ -61,10 +62,6 @@ public:
     /// @return int: the depth of the tree
     static int depth(Token* root);
 
-    /// numerates the tree starting from the current node using a counter in infix order (important for visualization)
-    /// @param o: the counter
-    void order(Order *o);
-
 
     // - - - - - - Getter and Setter - - - - - - -
 
@@ -78,7 +75,7 @@ public:
 
     /// Getter for the type of the token
     /// @return TokenType: the type of the token
-    TokenType getTokenType();
+    TokenTypeABC getTokenType();
 
     /// Getter for the m_left subtree
     /// @return Token*: the m_left subtree
@@ -104,13 +101,13 @@ public:
 
     /// Setter for the type of the token
     /// @param t: the type of the token
-    void setTokenType(TokenType t);
+    void setTokenType(TokenTypeABC t);
 
 
 protected:
     int m_ord;                  // Reihenfolge fuer die Visualisierung
     string m_value;
-    TokenType m_tokenType;
+    TokenTypeABC m_tokenType;
     static int m_nodes;
 };
 

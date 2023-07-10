@@ -1,12 +1,12 @@
+/*
+ *  author:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ *  version:    1.0
+ */
 #ifndef ARITHMETIC_TREE_VISUALIZER_HPP
 #define ARITHMETIC_TREE_VISUALIZER_HPP
 
-
 #include "Token Classes/Token.hpp"
-
 #include "iostream"
-
-
 
 /// class to visualize a tree
 class Visualizer

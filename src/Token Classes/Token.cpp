@@ -1,6 +1,6 @@
-//
-// Created by Jannik Loth on 03.07.23.
-//
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
 
 #include "Token.hpp"
 
@@ -21,11 +21,6 @@ void Token::setOrd(int o)
     m_ord = o;
 }
 
-// method to numerate the m_tree starting from the current node using a counter in infix order (important for visualization)
-void Token::order(Order *o)
-{
-
-}
 
 // method to get the number of nodes in the tree
 int Token::nodes()
@@ -55,13 +50,13 @@ void Token::setValue(string s)
 }
 
 // method to get the type of the token
-TokenType Token::getTokenType()
+TokenTypeABC Token::getTokenType()
 {
     return m_tokenType;
 }
 
 // method to set the type of the token
-void Token::setTokenType(TokenType t)
+void Token::setTokenType(TokenTypeABC t)
 {
     m_tokenType = t;
 }

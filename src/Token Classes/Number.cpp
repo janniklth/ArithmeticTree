@@ -1,6 +1,6 @@
-//
-// Created by Jannik Loth on 05.07.23.
-//
+/*
+ *  created by:     Jannik Loth, Leon Kühn, Mattes Wirths, Carl Felix Schlass
+ */
 
 #include "Number.hpp"
 
@@ -33,12 +33,6 @@ string Number::infix()
 string Number::postfix()
 {
     return m_value + " ";
-}
-
-// numerates the tree starting from the current node using a counter in infix order, important for visualization
-void Number::order(Order o)
-{
-    setOrd(++o.counter);
 }
 
 // - - - - - Getter and Setter - - - - -
