@@ -39,9 +39,11 @@ bool parse_arguments(int argc, char *argv[], char *mode, string *input)
     // loop over all arguments to read the arguments
     for (int i = 0; i < argc - 1; i++) {
         if (!strcmp(argv[i], "-e")) {
-            // set input to argv[i + 1]
-            *input = argv[i + 1];
-            i++;
+            // put all sings from arguments in input until next '-'
+            while (i + 1 < argc - 1 && strcmp(argv[i + 1], "-m") != 0) {
+                *input += argv[i + 1];
+                i++;
+            }
         }
 
         else if (!strcmp(argv[i], "-m"))
