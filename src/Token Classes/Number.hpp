@@ -22,7 +22,7 @@ public:
 	Number(int number_value) {
         m_number = number_value;
         m_value = to_string(number_value);
-        m_tokenType = TokenType::NUMBER;
+        m_tokenType = TokenTypeABC::NUMBER;
     }
 
     /// evaluates the result of the tree/subtree

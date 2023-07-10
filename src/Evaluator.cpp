@@ -71,7 +71,7 @@ Token *Evaluator::parse(vector<Token *> *tok, char mode)
 Token *Evaluator::parsePrefix(vector<Token *>::iterator &i)
 {
     // return leaf node without further recursion if token is a m_number
-    if ((*i)->getTokenType() == TokenType::NUMBER)
+    if ((*i)->getTokenType() == TokenTypeABC::NUMBER)
     {
         return *i;
     }
@@ -93,7 +93,7 @@ Token *Evaluator::parsePostfix(vector<Token *>::iterator i)
     do
     {
         // if the token is a m_number, push it to the stack
-        if ((*i)->getTokenType() == TokenType::NUMBER)
+        if ((*i)->getTokenType() == TokenTypeABC::NUMBER)
         {
             s->push(*i);
         }
