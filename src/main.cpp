@@ -81,7 +81,7 @@ bool parse_arguments(int argc, char *argv[], char *mode, string *expression)
             if (!bracket_counting_successful) {
                 cout
                         << "ERROR: argument for expression (-e) is not correct. "
-                        << " \nPlease use -e <expression> and expression: ((1+2)*3), all-encompassing brackets are important!"
+                        << " \nPlease use -e <expression> and expression like: ((1+2)*3), all-encompassing brackets are important!"
                         << endl;
                 is_successful = false;
             }
