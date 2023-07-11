@@ -1,18 +1,21 @@
 # ArithmeticTree
 This repository contains a project developed as part of the IT-Automotive study at DHBW Stuttgart. It is a submission for the Algorithms and Complexity course.
 
+
+## Disclaimer and Attribution
+We would like to mention that we have developed this project entirely on our own. Any code or resources that were not developed by us have been appropriately marked as such and attributed to their original sources.
+
+
 ## Description
 
 The ArithmeticTrees project focuses on parsing arithmetic expressions as binary trees in three different representations: prefix, infix, and postfix. The main objective is to build the arithmetic tree based on the input expression and evaluate its result, along with determining the number of nodes and the depth of the tree.
+
 
 ### Class Diagram
 
 The project follows the following class diagram:
 
 <img src="doc/UML_ArithmeticTree.png" alt="Alt text" title="Optional title">
-
-[https://lucid.app/lucidchart/eaa7f8fd-ea61-4e99-b400-512dbe78189e/edit?invitationId=inv_e00830bc-4495-4c9d-9150-2cfbbdbc1bfa](url)
-
 
 
 - `Token`: pure virtual class representing a token, which is either an operator, a bracket, or a number
@@ -31,6 +34,7 @@ The project follows the following class diagram:
 - Evaluating the result of the arithmetic tree.
 - Determining the number of nodes in the tree.
 - Calculating the depth of the tree.
+  
 
 ## Getting Started
 
@@ -81,6 +85,10 @@ The project follows the following class diagram:
 ```c++
 // Example code placeholder
 ```
+
+## Development
+We have utilized Git for version control, and as a result, specific version references are omitted in the class and method comments. The project has been developed collaboratively using pair programming techniques, which is why individual author attributions have been omitted.
+
 
 ## Contributing
 
