@@ -81,25 +81,41 @@ Token *Evaluator::parsePostfix(vector<Token *>::iterator i)
 {
     stack<Token*> *s = new stack<Token*>();
 
+    cout << "test" << endl;
+
     // loop that iterates through the vector of tokens
     do
     {
+        cout << "test" << endl;
+        cout << (*i)->getValue() << endl;
         // if the token is a m_number, push it to the stack
         if ((*i)->getTokenType() == TokenTypeABC::NUMBER)
         {
             s->push(*i);
+            cout << "num" << endl;
         }
 
+
         // if the token is an operator, create a new operator-node with the two operands from the stack
-        else
+        else if ((*i)->getTokenType() == TokenTypeABC::OPERATOR)
         {
+            cout << "opee" << endl;
+            cout << (*i)->getValue() << endl;
             // take the two operands from the stack and delete them
-            Token* tmp_operand_left = s->top(); s->pop();
+            Token* tmp_operand_left = s->top();
+            cout << "test2" << endl;
+            s->pop();
+
+
+
             Token* tmp_operand_right = s->top(); s->pop();
+
+
 
             // push new operator-node to stack
             s->push(new Operator((*i)->getValue(), tmp_operand_left, tmp_operand_right));
         }
+
 
         i++; // iterate to next token
     } while (*i != nullptr); // loop until end of vector is reached
