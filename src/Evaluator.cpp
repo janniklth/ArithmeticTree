@@ -3,19 +3,21 @@
  */
 
 #include "Evaluator.hpp"
+#include "Utilities.hpp"
 #include "../lib/BST_Visualizer.hpp"
 
 // public method to evaluate the expression
-void Evaluator::evaluate(string exp, char mode)
+void Evaluator::evaluate(string exp, Utilities::ParseMode mode)
 {
     // String in Tokens zerlegen
     Tokenizer *t = new Tokenizer(exp);
 
     // Aus den Tokens den arithmetischen Binärbaum aufbauen
     // return = Wurzeltoken des Baumes (Operator)
-    Token *e = parse(t->tokenize(), mode);
+    Token *e = parse(t->tokenize(mode), mode);
 
     // output of the expression and its evaluation
+    cout << "\n- - - - - - - - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << "Prefix:  " << e->prefix() << " = " << e->eval() << endl;
     cout << "Infix:   " << e->infix() << " = " << e->eval() << endl;
     cout << "Postfix: " << e->postfix() << " = " << e->eval() << endl;
@@ -41,15 +43,18 @@ bool Evaluator::checkOperator(char i)
 }
 
 // private method to call the corresponding parse method
-Token *Evaluator::parse(vector<Token *> *tok, char mode)
+Token *Evaluator::parse(vector<Token *> *tok, Utilities::ParseMode mode)
 {
     vector<Token *>::iterator i = tok->begin();
     switch (mode) {
-        case '<':
+        case Utilities::ParseMode::PREFIX:
             return parsePrefix(i);
-        case '>':
+        case Utilities::ParseMode::POSTFIX:
             return parsePostfix(i);
+        case Utilities::ParseMode::INFIX:
+            return parseInfix(i);
         default :
+            cout << "Error: Invalid ParseMode" << endl;
             return parseInfix(i);
     }
 }
@@ -80,22 +85,26 @@ Token *Evaluator::parsePostfix(vector<Token *>::iterator i)
     // loop that iterates through the vector of tokens
     do
     {
+        cout << (*i)->getValue() << endl;
         // if the token is a m_number, push it to the stack
         if ((*i)->getTokenType() == TokenTypeABC::NUMBER)
         {
             s->push(*i);
         }
 
+
         // if the token is an operator, create a new operator-node with the two operands from the stack
-        else
+        else if ((*i)->getTokenType() == TokenTypeABC::OPERATOR)
         {
+            cout << (*i)->getValue() << endl;
             // take the two operands from the stack and delete them
-            Token* tmp_operand_left = s->top(); s->pop();
+            Token* tmp_operand_left = s->top();s->pop();
             Token* tmp_operand_right = s->top(); s->pop();
 
             // push new operator-node to stack
             s->push(new Operator((*i)->getValue(), tmp_operand_left, tmp_operand_right));
         }
+
 
         i++; // iterate to next token
     } while (*i != nullptr); // loop until end of vector is reached

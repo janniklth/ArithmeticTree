@@ -15,6 +15,7 @@
 #include "Tokenizer.hpp"
 #include "Visualizer.hpp"
 #include "Token Classes/Number.hpp"
+#include "Utilities.hpp"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ public:
     /// is then evaluated and visualized
     /// @param exp: the arithmetic expression
     /// @param mode: '<': prefix, '|': infix, '>': postfix
-    void evaluate(string exp, char mode);
+    void evaluate(string exp,  Utilities::ParseMode mode);
 
 private:
     /// checks if a character is an operator
@@ -39,7 +40,7 @@ private:
     /// @param tok: the tokenized arithmetic expression
     /// @param mode: '<': prefix, '|': infix, '>': postfix
     /// @return Token*: the arithmetic binary m_tree
-	Token* parse(vector<Token*> *tok, char mode);
+	Token* parse(vector<Token*> *tok, Utilities::ParseMode mode);
 
     /// parses prefix expression (tokenized string) to an expression m_tree
     /// @param i: iterator that iterates through the vector of tokens

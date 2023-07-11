@@ -12,6 +12,7 @@
 #include "Token Classes/Bracket.hpp"
 #include "Token Classes/Operator.hpp"
 #include "Token Classes/Token.hpp"
+#include "Utilities.hpp"
 
 #include "string.h"
 #include "math.h"
@@ -29,7 +30,7 @@ public:
 
     /// splits a string into tokens from type Number, Operator and Bracket
     /// @return vector<Token*>: the vector of tokens
-    vector<Token *> *tokenize();
+    vector<Token *> *tokenize(Utilities::ParseMode mode);
 
 private:
     string m_src;

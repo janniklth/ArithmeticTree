@@ -19,4 +19,6 @@ add_executable(ArithmeticTree
         src/Evaluator.hpp
         src/Evaluator.cpp
         lib/BST_Visualizer.cpp
-        lib/BST_Visualizer.hpp)
+        lib/BST_Visualizer.hpp
+        src/Utilities.cpp
+        src/Utilities.hpp)
