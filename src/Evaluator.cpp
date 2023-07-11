@@ -3,10 +3,11 @@
  */
 
 #include "Evaluator.hpp"
+#include "Utilities.hpp"
 #include "../lib/BST_Visualizer.hpp"
 
 // public method to evaluate the expression
-void Evaluator::evaluate(string exp, char mode)
+void Evaluator::evaluate(string exp, Utilities::ParseMode mode)
 {
     // String in Tokens zerlegen
     Tokenizer *t = new Tokenizer(exp);
@@ -41,15 +42,18 @@ bool Evaluator::checkOperator(char i)
 }
 
 // private method to call the corresponding parse method
-Token *Evaluator::parse(vector<Token *> *tok, char mode)
+Token *Evaluator::parse(vector<Token *> *tok, Utilities::ParseMode mode)
 {
     vector<Token *>::iterator i = tok->begin();
     switch (mode) {
-        case '<':
+        case Utilities::ParseMode::PREFIX:
             return parsePrefix(i);
-        case '>':
+        case Utilities::ParseMode::POSTFIX:
             return parsePostfix(i);
+        case Utilities::ParseMode::INFIX:
+            return parseInfix(i);
         default :
+            cout << "Error: Invalid ParseMode" << endl;
             return parseInfix(i);
     }
 }
