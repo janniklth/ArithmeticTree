@@ -5,7 +5,7 @@
 #include "Tokenizer.hpp"
 
 // splits a string into tokens from type Number, Operator and Bracket
-vector<Token *> *Tokenizer::tokenize()
+vector<Token *> *Tokenizer::tokenize(Utilities::ParseMode mode)
 {
     // given code from the exercise
     vector<Token *> *tokens = new vector<Token *>();
@@ -18,7 +18,7 @@ vector<Token *> *Tokenizer::tokenize()
     for (int i = 0; i < stringLength; i++)
     {
         // check if the current char is a bracket and push a new Bracket object to the vector
-        if (m_src[i] == '(' || m_src[i] == ')')
+        if ((m_src[i] == '(' || m_src[i] == ')') && mode == Utilities::ParseMode::INFIX)
         {
             tokens->push_back(new Bracket(m_src[i]));
         }
