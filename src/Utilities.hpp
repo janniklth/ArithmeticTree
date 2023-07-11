@@ -21,6 +21,11 @@ public:
         POSTFIX
     };
 
+    /// method to convert ParesMode to string
+    /// @param mode: the ParseMode to be converted
+    /// @return string: the converted ParseMode
+    static string parseModeToString(ParseMode mode);
+
     /// function to parse arguments and check if all arguments are given
     /// @param argc: number of arguments
     /// @param argv: list of arguments

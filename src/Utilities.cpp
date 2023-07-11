@@ -4,6 +4,22 @@
 
 #include "Utilities.hpp"
 
+// method to convert ParesMode to string
+string Utilities::parseModeToString(Utilities::ParseMode mode)
+{
+    switch (mode) {
+        case ParseMode::PREFIX:
+            return "PREFIX";
+        case ParseMode::INFIX:
+            return "INFIX";
+        case ParseMode::POSTFIX:
+            return "POSTFIX";
+        default:
+            return "ERROR";
+    };
+}
+
+// method to parse arguments and check if all arguments are given
 bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mode, std::string *expression)
 {
     // initialise a var to store if the parsing was successful
@@ -89,4 +105,6 @@ bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mod
     }
     return is_successful;
 }
+
+
 

@@ -17,6 +17,7 @@ void Evaluator::evaluate(string exp, Utilities::ParseMode mode)
     Token *e = parse(t->tokenize(mode), mode);
 
     // output of the expression and its evaluation
+    cout << "\n- - - - - - - - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << "Prefix:  " << e->prefix() << " = " << e->eval() << endl;
     cout << "Infix:   " << e->infix() << " = " << e->eval() << endl;
     cout << "Postfix: " << e->postfix() << " = " << e->eval() << endl;

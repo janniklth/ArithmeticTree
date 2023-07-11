@@ -35,8 +35,9 @@ int main(int argc, char *argv[])
     }
 
     // print out the arguments
-    std::cout << "\n\nRechenausdruck: " << input << std::endl;
-//    std::cout << "Mode: " << to_string(mode) << std::endl;
+    std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - INPUT - - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
+    std::cout << "Expression: " << input << std::endl;
+    std::cout << "Mode/Notation: " << Utilities::parseModeToString(mode) << "\n" << std::endl;
 
     // evaluate the expression
     e.evaluate(input, mode);
