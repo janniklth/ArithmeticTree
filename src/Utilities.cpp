@@ -43,50 +43,46 @@ bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mod
         cout << "ERROR: argument -e for the expression is missing" << endl;
         is_successful = false;
     }
-    if (!is_successful) { return is_successful; };
+    if (!is_successful) { return is_successful; }
+
+
 
     // loop over all arguments to read the arguments
-    for (int i = 0; i < argc - 1; i++) {
+    for (int i = 1; i < argc - 1; i++) {
 
-        int bracket_counter = 0;
-        bool bracket_counting_successful = false;
+        cout << "test" << argv[i][0] << endl;
 
         // check for expression
         if (!strcmp(argv[i], "-e")) {
-            // concatenate all arguments until all brackets are closed
-            do {
-                for (int j = 0; j < strlen(argv[i + 1]); j++) {
-                    // check if the next charachter is a opening bracket
-                    if (argv[i + 1][j] == '(') {
-                        bracket_counter++;
-                        bracket_counting_successful = true;
-                    }
 
-                        // check if the next charachter is a closing bracket
-                    else if (argv[i + 1][j] == ')') {
-                        bracket_counter--;
-                        bracket_counting_successful = true;
-                    }
+            cout << "arg -e: " << argv[i + 1] << endl;
 
-                    // concatenate the charachter to the expression
-                    *expression += argv[i + 1][j];
+            // check if the expression is in quotes
+            if (reinterpret_cast<const char *>(argv[i + 1][0]) == "\"") {
+                // loop over all arguments
+                for (int j = i; j < argc - 1; j++) {
+                    for (int k = 0; k < strlen(argv[i + 1]); j++) {
+                        // append the character to the expression if it is not a quote
+                        if (reinterpret_cast<const char *>(argv[+1][k]) != "\"") {
+                            *expression += argv[+1][k];
+                        }
+                    }
                 }
-                // step to the next argument
-                i++;
-            } while (bracket_counter != 0);
-
-            // check if the expression is empty or ni brackets where found
-            if (!bracket_counting_successful) {
-                cout
-                        << "ERROR: argument for expression (-e) is not correct. "
-                        << " \nPlease use -e <expression> and expression like: ((1+2)*3), all-encompassing brackets are important!"
-                        << endl;
+            }
+            else {
+                // print error
+                cout << "ERROR: argument for expression (-e) is not correct. "
+                     << " \nPlease use -e <expression> and expression like: \"((1+2)*3)\", use quotes to escape the expression"
+                     << endl;
                 is_successful = false;
             }
         }
 
-            // check for mode
+        // check for mode
         else if (!strcmp(argv[i], "-m")) {
+
+            cout << "arg -m: " << argv[i + 1] << endl;
+
             if (!strcasecmp(argv[i + 1], "PREFIX")) {
                 *mode = ParseMode::PREFIX;
                 i++;
@@ -102,9 +98,7 @@ bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mod
                 is_successful = false;
             }
         }
+        return is_successful;
     }
-    return is_successful;
 }
-
-
 
