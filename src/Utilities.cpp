@@ -50,23 +50,24 @@ bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mod
     // loop over all arguments to read the arguments
     for (int i = 1; i < argc - 1; i++) {
 
+        cout << "arg[" << i << "]: " << argv[i] << endl;
+        cout << argc << endl;
+
         // check for expression
         if (!strcmp(argv[i], "-e")) {
             if (argv[i + 2] == nullptr || argv[i + 2][0] == '-') {
                 *expression = argv[i + 1];
-                i++; i++;
+                i++;
             } else {
                 cout << "ERROR: parameter value for argument -e is missing or in a wrong format\n       "
                      << "please it like -e <\"expression\">" << endl;
+                i++;
                 is_successful = false;
             }
         }
-
         // check for mode
         else if (!strcmp(argv[i], "-m")) {
-
-            cout << "arg -m: " << argv[i + 1] << endl;
-
+            // check which mode is given
             if (!strcasecmp(argv[i + 1], "PREFIX")) {
                 *mode = ParseMode::PREFIX;
                 cout << "mode is PREFIX" << endl;
@@ -85,7 +86,7 @@ bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mod
                 is_successful = false;
             }
         }
-        return is_successful;
     }
+    return is_successful;
 }
 
