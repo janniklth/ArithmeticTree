@@ -72,7 +72,7 @@ The project follows the following class diagram:
    Infix-Example: 
 
     ```bash
-    ./executable -e (((2 + 112) + 24) * ((100 / 5) * 3))  -m infix
+    ./executable -e "(((2 + 112) + 24) * ((100 / 5) * 3))"  -m infix
     ```
 
 
