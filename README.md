@@ -52,7 +52,7 @@ The project follows the following class diagram:
 2. Compile the source code using a C++ compiler:
 
    ```bash
-   g++ main.cpp -o executable
+   g++ main.cpp -o ArithmeticTreeEvaluator
 
 ### Usage
 
@@ -61,13 +61,13 @@ The project follows the following class diagram:
 2. Run the compiled executable and enter an arithmetic expression and the given notation:
 
    ```bash
-   ./executable -e <expression> -m <notation>
+   ./ArithmeticTreeEvaluator -e <"expression"> -m <notation>
     ```
    - -m <notation>: Specifies the notation of the arithmetic expression. The <notation> can be one of the following:
      - `infix`: Indicates that the expression is in infix notation. 
      - `postfix`: Indicates that the expression is in postfix notation. 
      - `prefix`: Indicates that the expression is in prefix notation. 
-   - -e <expression>: Specifies the arithmetic expression to be evaluated. The <expression> should be enclosed in parentheses to ensure correct parsing.
+   - -e <"expression">: Specifies the arithmetic expression to be evaluated. The <"expression"> should be enclosed in quotes to ensure correct parsing.
 
    Infix-Example: 
 
