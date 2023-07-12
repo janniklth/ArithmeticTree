@@ -50,30 +50,14 @@ bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mod
     // loop over all arguments to read the arguments
     for (int i = 1; i < argc - 1; i++) {
 
-        cout << "test" << argv[i][0] << endl;
-
         // check for expression
         if (!strcmp(argv[i], "-e")) {
-
-            cout << "arg -e: " << argv[i + 1] << endl;
-
-            // check if the expression is in quotes
-            if (reinterpret_cast<const char *>(argv[i + 1][0]) == "\"") {
-                // loop over all arguments
-                for (int j = i; j < argc - 1; j++) {
-                    for (int k = 0; k < strlen(argv[i + 1]); j++) {
-                        // append the character to the expression if it is not a quote
-                        if (reinterpret_cast<const char *>(argv[+1][k]) != "\"") {
-                            *expression += argv[+1][k];
-                        }
-                    }
-                }
-            }
-            else {
-                // print error
-                cout << "ERROR: argument for expression (-e) is not correct. "
-                     << " \nPlease use -e <expression> and expression like: \"((1+2)*3)\", use quotes to escape the expression"
-                     << endl;
+            if (argv[i + 2] == nullptr || argv[i + 2][0] == '-') {
+                *expression = argv[i + 1];
+                i++; i++;
+            } else {
+                cout << "ERROR: parameter value for argument -e is missing or in a wrong format\n       "
+                     << "please it like -e <\"expression\">" << endl;
                 is_successful = false;
             }
         }
@@ -85,12 +69,15 @@ bool Utilities::parse_arguments(int argc, char **argv, Utilities::ParseMode *mod
 
             if (!strcasecmp(argv[i + 1], "PREFIX")) {
                 *mode = ParseMode::PREFIX;
+                cout << "mode is PREFIX" << endl;
                 i++;
             } else if (!strcasecmp(argv[i + 1], "INFIX")) {
                 *mode = ParseMode::INFIX;
+                cout << "mode is INFIX" << endl;
                 i++;
             } else if (!strcasecmp(argv[i + 1], "POSTFIX")) {
                 *mode = ParseMode::POSTFIX;
+                cout << "mode is POSTFIX" << endl;
                 i++;
             } else {
                 cout << "ERROR: argument for mode (-m) is not correct: " << argv[i + 1]
