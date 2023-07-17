@@ -4,7 +4,7 @@
 
 #include "Evaluator.hpp"
 #include "Utilities.hpp"
-#include "../lib/BST_Visualizer.hpp"
+#include "../lib/BST_VISUALIZER/BST_Visualizer.hpp"
 
 // public method to evaluate the expression
 void Evaluator::evaluate(string exp, Utilities::ParseMode mode)

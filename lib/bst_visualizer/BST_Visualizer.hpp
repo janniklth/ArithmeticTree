@@ -6,7 +6,7 @@
 #ifndef ARITHMETICTREE_BST_VISUALIZER_HPP
 #define ARITHMETICTREE_BST_VISUALIZER_HPP
 
-#include "../src/Token Classes/Token.hpp"
+#include "../../src/Token Classes/Token.hpp"
 #include <string>
 #include <queue>
 
