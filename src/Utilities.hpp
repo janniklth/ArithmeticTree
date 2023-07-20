@@ -6,7 +6,7 @@
 #define ARITHMETICTREE_UTILITIES_HPP
 
 #include <iostream>
-#include <string>
+#include <cstring>
 
 using namespace std;
 
