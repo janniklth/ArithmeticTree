@@ -27,6 +27,8 @@ add_executable(GoogleTests
 
 target_link_libraries(GoogleTests gtest gtest_main)
 
+install(TARGETS GoogleTests DESTINATION "${tool_dest}")
+
 
 
 # Executable for normal use
