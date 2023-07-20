@@ -9,8 +9,8 @@
 // simple expected test
 TEST(test1, getStarted)
 {
-    EXPECT_EQ(true, true);
     EXPECT_EQ(true, false);
+    EXPECT_EQ(true, true);
 
 //    EXPECT_EQ(Utilities::parseModeToString(Utilities::ParseMode::PREFIX), "prefix");
 //    EXPECT_EQ(Utilities::parseModeToString(Utilities::ParseMode::INFIX), "infix");
