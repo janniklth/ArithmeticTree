@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 // constructor
 BST_Visualizer::BST_Visualizer(Token* root, int node_length /* = -1 */, int space_length /* = -1 */)
